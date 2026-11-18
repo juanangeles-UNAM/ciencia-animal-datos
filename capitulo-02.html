@@ -1,0 +1,275 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Capítulo 2 | Ciencia Animal a través de los Datos</title><link rel="stylesheet" href="assets/style.css"></head><body><header class="top"><a class="brand" href="index.html">Ciencia Animal <span style="font-weight:400;opacity:.7">a través de los Datos</span></a><small>Exploración · Análisis · Razonamiento estadístico con R</small><button class="mobile-menu" type="button">☰ Menú</button></header><div class="layout"><nav class="sidebar"><div class="side-label">Navegación</div><a class="" href="index.html">Inicio</a><a class="" href="capitulo-01.html">01 · Primeros pasos en R</a><a class="active" href="capitulo-02.html">02 · ¿Qué nos dicen los datos?</a><a class="" href="recursos.html">Scripts, datos y bibliografía</a><div class="side-label">Siguiente etapas</div><a style="opacity:.56;cursor:default" aria-disabled="true">Sección II · Variabilidad e incertidumbre</a><a style="opacity:.56;cursor:default" aria-disabled="true">Sección III · Decisiones experimentales</a><a style="opacity:.56;cursor:default" aria-disabled="true">Sección IV · Regresión</a><a style="opacity:.56;cursor:default" aria-disabled="true">Sección V · Mediciones repetidas</a></nav><main class="article"><div class="eyebrow">SECCIÓN I · PRIMER ENCUENTRO CON LOS DATOS</div><h1>Capítulo 2. ¿Qué nos dicen nuestros datos?</h1>
+<p><strong>Duración sugerida: 8 horas</strong> · Estadística descriptiva, variabilidad biológica y visualización.</p>
+<p>En el capítulo anterior organizamos las observaciones de 15 becerros distribuidos en tres tratamientos. Ahora queremos responder algunas preguntas: ¿cuál es su ganancia de peso promedio?, ¿todos los animales responden igual?, ¿qué tan variables son los resultados?, ¿qué información aporta un gráfico que no encontramos fácilmente en una tabla?</p>
+<p>La <strong>estadística descriptiva</strong> reúne procedimientos para organizar, resumir y representar las observaciones mediante tablas, medidas numéricas y gráficos. Permite explorar el centro, la dispersión y la forma de los datos, pero por sí sola no demuestra que una diferencia entre grupos se deba al tratamiento (Webb, 2021).</p>
+<h2>2.1. Recuperando nuestra base de becerros</h2>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####GENERAMOS NUESTRA BASE DE DATOS----------------
+becerro&lt;-1:15
+TX&lt;-c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)
+GAN&lt;-c(270,300,280,280,270,
+       290,250,280,290,280,
+       290,340,330,300,340)
+DATA&lt;-data.frame(becerro,TX=factor(TX),GAN)
+
+####INSPECCION DE DATOS----------------
+str(DATA)
+head(DATA)
+summary(DATA)
+colSums(is.na(DATA))
+</code></pre></div>
+<h3>Población, muestra y unidad de observación</h3>
+<p>La <strong>población</strong> es el conjunto de individuos u observaciones sobre el cual queremos obtener información. Una <strong>muestra</strong> es la parte de esa población que efectivamente estudiamos. La <strong>unidad de observación</strong> es el elemento sobre el cual registramos una medida (Webb, 2021).</p>
+<p>En nuestro ejemplo, los 15 becerros constituyen el conjunto observado. Si nuestro objetivo fuera generalizar los resultados a una población más amplia de becerros, necesitaríamos definir sus características y considerar cómo fueron seleccionados los animales.</p>
+<p>La <strong>unidad experimental</strong> es aquella que recibe un tratamiento asignado de manera independiente. Puede coincidir con el animal, pero si la alimentación se aplica a todo un corral, por ejemplo, podría ser el corral. Esta distinción es crucial al diseñar y analizar experimentos (Festing y Altman, 2002).</p>
+<h2>2.2. Medidas de tendencia central</h2>
+<p>Las <strong>medidas de tendencia central</strong> describen dónde se ubica el centro de un conjunto de observaciones. Las más utilizadas son la media, la mediana y la moda (Webb, 2021).</p>
+<h3>Media aritmética</h3>
+<p>La <strong>media</strong> es la suma de los valores dividida entre el número de observaciones. En una muestra se expresa como:</p>
+<p>$$\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}$$</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####CALCULAMOS LA MEDIA----------------
+mean(DATA$GAN)
+
+####OTRA FORMA DE CALCULARLA----------------
+sum(DATA$GAN)/length(DATA$GAN)
+</code></pre></div>
+<p>La ganancia diaria de peso promedio es <strong>292.67 g/día</strong>. Esta cifra resume los 15 registros, pero no significa que todos los animales hayan presentado exactamente esa ganancia.</p>
+<h3>Mediana</h3>
+<p>La <strong>mediana</strong> es el valor central de los datos ordenados de menor a mayor. Es menos sensible a valores extremos que la media y puede ser útil cuando la distribución es asimétrica (Webb, 2021).</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####MEDIANA----------------
+median(DATA$GAN)
+sort(DATA$GAN)
+</code></pre></div>
+<p>La mediana es <strong>290 g/día</strong>.</p>
+<h3>Moda</h3>
+<p>La <strong>moda</strong> es el valor que aparece con mayor frecuencia. Puede existir más de una moda si diferentes valores comparten la frecuencia máxima. Para identificarla no debemos utilizar <code>mode()</code> de R, ya que esa función describe el almacenamiento interno de un objeto.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####FRECUENCIA DE LAS OBSERVACIONES----------------
+table(DATA$GAN)
+</code></pre></div>
+<h3>¿Qué sucede cuando encontramos un valor extremo?</h3>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####MODIFICAMOS UNA OBSERVACION----------------
+DATA2&lt;-DATA
+DATA2$GAN[15]&lt;-500
+mean(DATA$GAN)
+mean(DATA2$GAN)
+median(DATA$GAN)
+median(DATA2$GAN)
+</code></pre></div>
+<p>La media aumenta de 292.67 a <strong>303.33 g/día</strong>, mientras que la mediana permanece en 290 g/día. Esta diferencia ilustra por qué debemos conocer la distribución antes de elegir cómo resumirla.</p>
+<h2>2.3. Variabilidad biológica</h2>
+<p>La <strong>variabilidad biológica</strong> se refiere a las diferencias entre individuos, incluso cuando comparten características y condiciones de manejo. En los sistemas de producción animal, esas diferencias pueden relacionarse con genética, fisiología, alimentación, ambiente, estado sanitario y otras fuentes de variación.</p>
+<p>La variabilidad influye también en la capacidad de un experimento para detectar efectos. Una diferencia promedio entre tratamientos puede ser relativamente clara cuando la dispersión individual es pequeña, y más difícil de distinguir cuando las respuestas son heterogéneas. La interpretación de resultados requiere considerar tanto la magnitud del efecto como la variación y el diseño del estudio (Festing y Altman, 2002).</p>
+<h3>Rango</h3>
+<p>El <strong>rango</strong> es la diferencia entre el máximo y el mínimo observado. Resume la amplitud total de los datos, aunque solo utiliza dos valores y por ello es sensible a observaciones extremas.</p>
+<p>$$R=x_{\max}-x_{\min}$$</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####RANGO----------------
+min(DATA$GAN)
+max(DATA$GAN)
+max(DATA$GAN)-min(DATA$GAN)
+</code></pre></div>
+<p>Los valores van de 250 a 340 g/día: el rango es <strong>90 g/día</strong>.</p>
+<h3>Varianza</h3>
+<p>La <strong>varianza muestral</strong> cuantifica la dispersión alrededor de la media mediante la suma de las desviaciones elevadas al cuadrado, dividida entre los grados de libertad de la muestra (Webb, 2021).</p>
+<p>$$s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$$</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####VARIANZA----------------
+var(DATA$GAN)
+
+####DE DONDE SALE EL CALCULO----------------
+MEDIA&lt;-mean(DATA$GAN)
+DESVIACIONES&lt;-DATA$GAN-MEDIA
+CUADRADOS&lt;-DESVIACIONES^2
+SC&lt;-sum(CUADRADOS)
+VARIANZA&lt;-SC/(length(DATA$GAN)-1)
+VARIANZA
+</code></pre></div>
+<p>La varianza es aproximadamente <strong>678.10 (g/día)²</strong>. Las unidades al cuadrado hacen que no sea tan intuitiva como la desviación estándar, pero su cálculo resulta esencial para comprender ANOVA.</p>
+<h3>Desviación estándar</h3>
+<p>La <strong>desviación estándar (DE)</strong> es la raíz cuadrada de la varianza. Expresa la dispersión de los valores en las mismas unidades que la variable original (Webb, 2021).</p>
+<p>$$s=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}$$</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####DESVIACION ESTANDAR----------------
+sd(DATA$GAN)
+sqrt(var(DATA$GAN))
+</code></pre></div>
+<p>La DE es aproximadamente <strong>26.04 g/día</strong>. No describe la precisión de la media: ese es otro concepto, denominado <em>error estándar</em>, que estudiaremos más adelante.</p>
+<h3>Coeficiente de variación</h3>
+<p>El <strong>coeficiente de variación (CV)</strong> relaciona la desviación estándar con la media y expresa la dispersión relativa como porcentaje. Se utiliza con variables positivas en escala de razón, cuando la media está suficientemente alejada de cero (Webb, 2021).</p>
+<p>$$CV=\frac{s}{\bar{x}}\times100$$</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####COEFICIENTE DE VARIACION----------------
+CV&lt;-(sd(DATA$GAN)/mean(DATA$GAN))*100
+CV
+</code></pre></div>
+<p>El CV de los 15 animales es aproximadamente <strong>8.90%</strong>.</p>
+<h2>2.4. Comparando los tratamientos</h2>
+<p>Ahora podemos calcular las medias y desviaciones estándar de los tres tratamientos. La descripción por grupos es importante: dos grupos pueden tener medias parecidas y dispersión muy distinta.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####MEDIA POR TRATAMIENTO----------------
+aggregate(GAN~TX,data=DATA,FUN=mean)
+
+####DESVIACION ESTANDAR POR TRATAMIENTO----------------
+aggregate(GAN~TX,data=DATA,FUN=sd)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+  <th>Tratamiento</th>
+  <th style="text-align:right">Media (g/día)</th>
+  <th style="text-align:right">DE (g/día)</th>
+  <th style="text-align:right">CV (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>TX1</td>
+  <td style="text-align:right">280.00</td>
+  <td style="text-align:right">12.25</td>
+  <td style="text-align:right">4.37</td>
+</tr>
+<tr>
+  <td>TX2</td>
+  <td style="text-align:right">278.00</td>
+  <td style="text-align:right">16.43</td>
+  <td style="text-align:right">5.91</td>
+</tr>
+<tr>
+  <td>TX3</td>
+  <td style="text-align:right">320.00</td>
+  <td style="text-align:right">23.45</td>
+  <td style="text-align:right">7.33</td>
+</tr>
+</tbody>
+</table>
+<p>El tratamiento 3 presenta una media mayor y también mayor dispersión. Estas diferencias son <strong>descriptivas</strong>: para estudiar formalmente el efecto del tratamiento necesitaremos considerar la asignación experimental y el análisis inferencial.</p>
+<p><img src="assets/medias_becerros.png" alt="Media de ganancia diaria de peso por tratamiento" /></p>
+<h2>2.5. Distribución de frecuencias e histogramas</h2>
+<p>Una <strong>distribución de frecuencias</strong> muestra cuántas observaciones aparecen en cada valor o intervalo. Es una primera forma de identificar dónde se concentran los registros.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####FRECUENCIA DE GANANCIA DE PESO----------------
+table(DATA$GAN)
+</code></pre></div>
+<p>Un <strong>histograma</strong> representa gráficamente la distribución de una variable cuantitativa mediante intervalos consecutivos. La altura de las barras expresa la frecuencia o la densidad, según la escala utilizada. Permite examinar el centro, la dispersión, la asimetría y posibles valores alejados del conjunto (Webb, 2021).</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####HISTOGRAMA----------------
+hist(DATA$GAN)
+
+####VAMOS A DARLE ALGO DE COLOR----------------
+hist(DATA$GAN,
+     col=&quot;aquamarine3&quot;,
+     main=&quot;Ganancia diaria de peso&quot;,
+     xlab=&quot;Ganancia diaria de peso (g/día)&quot;,
+     ylab=&quot;Frecuencia&quot;)
+</code></pre></div>
+<p><img src="assets/histograma_becerros.png" alt="Histograma de las ganancias de peso originales" /></p>
+<p>También podemos agregar una curva de densidad. Para que las escalas sean compatibles, el histograma debe utilizar densidad en lugar de frecuencia absoluta.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####HISTOGRAMA CON CURVA DE DENSIDAD----------------
+hist(DATA$GAN,probability=TRUE,
+     col=&quot;slategray4&quot;,xlab=&quot;GDP (g/día)&quot;,ylab=&quot;Densidad&quot;)
+lines(density(DATA$GAN),lwd=2,col=&quot;blue&quot;)
+</code></pre></div>
+<p>Con solo 15 observaciones, la forma visual de la distribución depende mucho de los intervalos y del suavizado. Por eso debemos evitar conclusiones demasiado firmes sobre normalidad u otras características de la distribución.</p>
+<h2>2.6. Diagramas de caja y cuartiles</h2>
+<p>Los <strong>cuartiles</strong> dividen los datos ordenados en cuatro partes. El primero (Q1) corresponde al percentil 25 y el tercero (Q3), al percentil 75. La diferencia <strong>RIC = Q3 − Q1</strong> se denomina <em>rango intercuartílico</em> y contiene el 50% central de las observaciones.</p>
+<p>Un <strong>diagrama de caja o boxplot</strong> muestra la mediana, los cuartiles y los bigotes. En la representación habitual de R, los bigotes terminan en los valores más extremos situados dentro de 1.5 veces el RIC desde cada cuartil; los puntos fuera de esos límites se señalan por separado (Webb, 2021).</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####GRAFICO DE CAJA----------------
+boxplot(DATA$GAN)
+
+####POR TRATAMIENTO----------------
+boxplot(GAN~TX,data=DATA,
+        col=rainbow(3),
+        xlab=&quot;Tratamiento&quot;,ylab=&quot;GDP (g/día)&quot;)
+</code></pre></div>
+<p><img src="assets/boxplot_becerros.png" alt="Diagrama de caja con observaciones individuales originales" /></p>
+<p>Para mostrar también a cada animal podemos utilizar <code>ggplot2</code>, que permite superponer puntos individuales sobre las cajas.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####GRAFICO CON GGPLOT2----------------
+# Instalar ggplot2 una vez con install.packages(&quot;ggplot2&quot;)
+library(ggplot2)
+
+ggplot(DATA,aes(x=TX,y=GAN,fill=TX))+
+  geom_boxplot(alpha=.4)+
+  geom_jitter(width=.08,size=2.5)+
+  labs(x=&quot;Tratamiento&quot;,y=&quot;Ganancia diaria de peso (g/día)&quot;)+
+  theme_classic()
+</code></pre></div>
+<h2>2.7. Valores atípicos</h2>
+<p>Un <strong>valor atípico</strong> es una observación considerablemente diferente del resto de los datos. Puede representar una respuesta biológica real, un problema de medición, un error de captura o una condición específica del experimento. No debe eliminarse automáticamente: primero necesitamos revisar su origen y su influencia sobre los resultados (Webb, 2021; Festing y Altman, 2002).</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####VALORES ATIPICOS----------------
+boxplot.stats(DATA$GAN)$out
+
+####MODIFICAMOS UNA OBSERVACION----------------
+DATA2&lt;-DATA
+DATA2$GAN[15]&lt;-500
+par(mfrow=c(1,2))
+boxplot(DATA$GAN,main=&quot;Datos originales&quot;)
+boxplot(DATA2$GAN,main=&quot;Valor modificado&quot;)
+par(mfrow=c(1,1))
+</code></pre></div>
+<p><strong>Experimentemos.</strong> ¿Cómo cambian la media, la mediana y la desviación estándar cuando sustituimos 340 por 500 g/día? ¿Qué información necesitaríamos antes de decidir si el registro es correcto?</p>
+<h2>2.8. Otros gráficos para examinar grupos</h2>
+<p>Los gráficos de <code>ggpubr</code> y <code>yarrr</code> pueden reunir observaciones y resúmenes descriptivos en una misma figura. Conviene saber qué representan los elementos del gráfico: por ejemplo, una desviación estándar no es lo mismo que un error estándar o un intervalo de confianza.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####MEDIAS Y DESVIACION ESTANDAR----------------
+# Instalar una vez: install.packages(&quot;ggpubr&quot;)
+library(ggpubr)
+ggline(DATA,x=&quot;TX&quot;,y=&quot;GAN&quot;,add=c(&quot;mean_sd&quot;,&quot;jitter&quot;),
+       xlab=&quot;Tratamiento&quot;,ylab=&quot;GDP (g/día)&quot;)
+
+####PIRATE PLOT----------------
+# Instalar una vez: install.packages(&quot;yarrr&quot;)
+library(yarrr)
+pirateplot(GAN~TX,data=DATA,theme=2,
+           xlab=&quot;Tratamiento&quot;,ylab=&quot;GDP (g/día)&quot;)
+</code></pre></div>
+<h2>2.9. Práctica complementaria: corredores</h2>
+<p>Los procedimientos descriptivos se pueden aplicar a distintas variables. Vamos a construir una segunda base con tiempos de 15 corredores distribuidos en tres métodos. Este ejemplo nos ayudará a comprobar que describir los datos no depende de la especie o del tipo de respuesta, sino de la variable y de nuestra pregunta de investigación.</p>
+<div class="code-wrap"><div class="code-top"><span>R · Script de práctica</span><button class="copy" type="button" aria-label="Copiar código">Copiar código</button></div><pre><code class="language-r">####BASE DE CORREDORES----------------
+CORREDOR&lt;-1:15
+MET&lt;-factor(rep(c(&quot;Met1&quot;,&quot;Met2&quot;,&quot;Met3&quot;),each=5))
+Tiempo&lt;-c(15,16,14,15,17,
+          14,13,15,16,14,
+          13,12,11,14,11)
+DATAm&lt;-data.frame(CORREDOR,MET,Tiempo)
+str(DATAm)
+
+####EXPORTAR E IMPORTAR DATOS----------------
+write.csv(DATAm,&quot;CORREDORES.csv&quot;,row.names=FALSE)
+DATAm2&lt;-read.csv(&quot;CORREDORES.csv&quot;)
+DATAm2$MET&lt;-as.factor(DATAm2$MET)
+
+####DESCRIPCION----------------
+aggregate(Tiempo~MET,data=DATAm2,FUN=mean)
+aggregate(Tiempo~MET,data=DATAm2,FUN=sd)
+boxplot(Tiempo~MET,data=DATAm2,col=rainbow(3))
+</code></pre></div>
+<table>
+<thead>
+<tr>
+  <th>Método</th>
+  <th style="text-align:right">n</th>
+  <th style="text-align:right">Tiempo promedio</th>
+  <th style="text-align:right">Desviación estándar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Met1</td>
+  <td style="text-align:right">5</td>
+  <td style="text-align:right">15.4</td>
+  <td style="text-align:right">1.14</td>
+</tr>
+<tr>
+  <td>Met2</td>
+  <td style="text-align:right">5</td>
+  <td style="text-align:right">14.4</td>
+  <td style="text-align:right">1.14</td>
+</tr>
+<tr>
+  <td>Met3</td>
+  <td style="text-align:right">5</td>
+  <td style="text-align:right">12.2</td>
+  <td style="text-align:right">1.30</td>
+</tr>
+</tbody>
+</table>
+<p><img src="assets/corredores.png" alt="Distribución de tiempos por método" /></p>
+<p>Si el recorrido fue equivalente para todos, el método 3 presenta descriptivamente el menor tiempo medio. Sin embargo, no podemos atribuir esa diferencia al entrenamiento sin conocer el diseño del experimento y aplicar procedimientos inferenciales adecuados.</p>
+<h2>Actividad integradora</h2>
+<p>Utilizando la base de <strong>15 becerros</strong>, identifica la variable de respuesta y el factor de tratamiento. Calcula media, mediana, varianza, desviación estándar y CV del conjunto completo y de cada tratamiento. Construye un histograma y un diagrama de caja con observaciones individuales. Después redacta un párrafo que describa los resultados sin afirmar todavía que existe un efecto del tratamiento.</p>
+<p><strong>Ejemplo de interpretación.</strong> Se analizaron los registros de ganancia diaria de peso de 15 becerros distribuidos en tres tratamientos. La media general fue de 292.67 g/día, con DE de 26.04 g/día y CV de 8.90%. Las medias de TX1, TX2 y TX3 fueron de 280, 278 y 320 g/día. El tercer tratamiento presentó la mayor media y la mayor dispersión. Estas diferencias describen los datos observados y deberán evaluarse posteriormente con un análisis que considere el diseño experimental.</p>
+<h2>Lo que aprendimos</h2>
+<p>La media y la mediana permiten describir la posición central de los datos. La varianza, desviación estándar y CV ayudan a caracterizar su dispersión. Los histogramas, boxplots y gráficos con observaciones individuales permiten identificar patrones y posibles valores extremos. Estos procedimientos son indispensables antes de realizar un análisis inferencial.</p>
+<p>En la siguiente sección estudiaremos distribuciones, muestreo, teorema central del límite, error estándar e intervalos de confianza.</p>
+<div class="bottomnav"><a href="capitulo-01.html">← Anterior</a><a href="recursos.html">Siguiente →</a></div><footer class="footer">Dr. Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM · Sección I</footer></main></div><script src="assets/app.js"></script></body></html>
