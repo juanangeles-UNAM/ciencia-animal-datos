@@ -1,0 +1,4 @@
+Tareas
+
+1. Convertir los htmls para que sean generados desde QMD (Alirio)
+2. Pasarme los códigos de R con los scripts de clase, y la descripción básica de cada uno (Juan Carlos)
