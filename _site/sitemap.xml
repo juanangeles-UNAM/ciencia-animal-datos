@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://juanangeles-UNAM.github.io/ciencia-animal-datos/recursos.html</loc>
+    <loc>/recursos.html</loc>
     <lastmod>2026-11-19T11:04:52.287Z</lastmod>
   </url>
   <url>
-    <loc>https://juanangeles-UNAM.github.io/ciencia-animal-datos/Capitulo-02.html</loc>
+    <loc>/Capitulo-02.html</loc>
     <lastmod>2026-11-19T11:10:58.344Z</lastmod>
   </url>
   <url>
-    <loc>https://juanangeles-UNAM.github.io/ciencia-animal-datos/Capitulo-01.html</loc>
-    <lastmod>2026-11-19T10:55:56.268Z</lastmod>
+    <loc>/Capitulo-01.html</loc>
+    <lastmod>2026-11-19T11:23:52.723Z</lastmod>
   </url>
   <url>
-    <loc>https://juanangeles-UNAM.github.io/ciencia-animal-datos/index.html</loc>
+    <loc>/index.html</loc>
     <lastmod>2026-11-19T11:01:36.780Z</lastmod>
   </url>
 </urlset>

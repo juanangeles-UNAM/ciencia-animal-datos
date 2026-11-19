@@ -280,7 +280,7 @@
     "href": "Capitulo-01.html#funciones-y-ayuda",
     "title": "Capítulo 1. Nuestros primeros pasos en R",
     "section": "6 Funciones y ayuda",
-    "text": "6 Funciones y ayuda\nUna función realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.\n\n#### FUNCIONES ----------------\nstr(Y)\n\n num 11\n\nmode(Y)\n\n[1] \"numeric\"\n\nls()\n\n [1] \"becerro\"    \"GANANCIA\"   \"MATRIZ\"     \"MATRIZ2\"    \"PESO\"      \n [6] \"PESO.FINAL\" \"SECUENCIA\"  \"UNO\"        \"VECTOR\"     \"X\"         \n[11] \"Y\"         \n\n#### ¿NECESITAS AYUDA? ----------------\n?mean\n?str\n?hist\n\nEn R, mode() informa sobre el modo de almacenamiento del objeto: no debe confundirse con la moda estadística, que veremos en el capítulo siguiente. La función ls() muestra los objetos disponibles en el entorno.",
+    "text": "6 Funciones y ayuda\nUna función realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.\n\n#### FUNCIONES ----------------\nstr(Y)\nmode(Y)\nls()\n\n#### ¿NECESITAS AYUDA? ----------------\n?mean\n?str\n?hist\n\nEn R, mode() informa sobre el modo de almacenamiento del objeto: no debe confundirse con la moda estadística, que veremos en el capítulo siguiente. La función ls() muestra los objetos disponibles en el entorno.",
     "crumbs": [
       "Inicio",
       "Navegación",

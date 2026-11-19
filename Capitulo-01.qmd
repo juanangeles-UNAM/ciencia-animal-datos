@@ -1,20 +1,5 @@
 ---
-title: "Capítulo 1. Nuestros primeros pasos en R"
-subtitle: "Ciencia Animal a través de los Datos"
-author: "Dr. Juan Carlos Ángeles Hernández"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    code-copy: true
-    code-fold: false
-    theme: cosmo
-lang: es
-execute:
-  echo: true
-  warning: false
-  message: false
+title: "Nuestros primeros pasos en R"
 ---
 
 ::: {.callout-note}

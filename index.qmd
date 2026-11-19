@@ -1,8 +1,6 @@
 ---
 title: "Ciencia Animal a través de los Datos"
 subtitle: "Exploración, análisis y razonamiento estadístico con R"
-author: "Dr. Juan Carlos Ángeles Hernández"
-page-layout: full
 ---
 
 ::: {.content-visible when-format="html"}

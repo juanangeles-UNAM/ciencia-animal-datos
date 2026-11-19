@@ -1,14 +1,6 @@
 ---
 title: "Recursos del curso"
 subtitle: "Scripts, datos y bibliografía"
-author: "Dr. Juan Carlos Ángeles Hernández"
-page-layout: article
-format:
-  html:
-    toc: true
-    toc-depth: 2
-    number-sections: false
-lang: es
 ---
 
 ::: {.callout-note}

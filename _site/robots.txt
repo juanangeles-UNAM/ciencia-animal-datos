@@ -1,1 +1,1 @@
-Sitemap: https://juanangeles-UNAM.github.io/ciencia-animal-datos/sitemap.xml
+Sitemap: /sitemap.xml

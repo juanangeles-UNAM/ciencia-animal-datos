@@ -161,6 +161,7 @@ Una **función** realiza una tarea definida y, habitualmente, recibe uno o vario
 
 ```{r}
 #| label: funciones-ayuda
+#| eval: false
 
 #### FUNCIONES ----------------
 str(Y)

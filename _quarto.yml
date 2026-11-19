@@ -1,44 +1,31 @@
 project:
-  type: website
-  output-dir: _site
+  type: book
+  output-dir: _book
 
-website:
+book:
   title: "Ciencia Animal a través de los Datos"
-  description: "Exploración, análisis y razonamiento estadístico con R"
-  site-url: ""
-  navbar:
-    background: light
-    left:
-      - href: index.qmd
-        text: Inicio
-      - href: Capitulo-01.qmd
-        text: "01 · Primeros pasos en R"
-      - href: Capitulo-02.qmd
-        text: "02 · ¿Qué nos dicen los datos?"
-      - href: recursos.qmd
-        text: "Scripts, datos y bibliografía"
-  sidebar:
-    style: docked
-    search: true
-    contents:
-      - section: "Navegación"
-        contents:
-          - href: index.qmd
-            text: Inicio
-          - href: Capitulo-01.qmd
-            text: "01 · Primeros pasos en R"
-          - href: Capitulo-02.qmd
-            text: "02 · ¿Qué nos dicen los datos?"
-          - href: recursos.qmd
-            text: "Scripts, datos y bibliografía"
-      - section: "Siguientes etapas"
-        contents:
-          - text: "Sección II · Variabilidad e incertidumbre"
-          - text: "Sección III · Decisiones experimentales"
-          - text: "Sección IV · Regresión"
-          - text: "Sección V · Mediciones repetidas"
+  subtitle: "Exploración, análisis y razonamiento estadístico con R"
+  author: "Dr. Juan Carlos Ángeles Hernández"
+  description: "Material didáctico de exploración, análisis y razonamiento estadístico con R aplicado a Ciencia Animal"
+  site-url: "https://juanangeles-UNAM.github.io/ciencia-animal-datos/"
+
+  chapters:
+    - index.qmd
+    - part: "Sección I · Primer encuentro con los datos"
+      chapters:
+        - Capitulo-01.qmd
+        - Capitulo-02.qmd
+        - recursos.qmd
+
   page-footer:
     center: "Dr. Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM"
+
+  search: true
+  repo-url: "https://github.com/juanangeles-UNAM/ciencia-animal-datos"
+  repo-actions: [edit, issue]
+  # downloads: [pdf]
+
+bibliography: references.bib
 
 format:
   html:
@@ -47,14 +34,16 @@ format:
     css: assets/style.css
     toc: true
     toc-depth: 3
-    number-sections: false
+    number-sections: true
     code-copy: true
     code-fold: false
     smooth-scroll: true
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    number-sections: true
 
 execute:
   echo: true
   warning: false
   message: false
-
-bibliography: references.bib
