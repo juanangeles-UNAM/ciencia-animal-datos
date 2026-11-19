@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Juan Carlos Ángeles Hernández">
+<meta name="description" content="Material didáctico de exploración, análisis y razonamiento estadístico con R aplicado a Ciencia Animal">
 
-<title>Capítulo 1. Nuestros primeros pasos en R – Ciencia Animal a través de los Datos</title>
+<title>2&nbsp; Capítulo 1. Nuestros primeros pasos en R – Ciencia Animal a través de los Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,6 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Capitulo-02.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -81,13 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-805e789c7b7f260b48d5cafdd348845c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5630e6732664d48c7cde3b526013eeb9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -115,51 +118,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Ciencia Animal a través de los Datos</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Inicio</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Capitulo-01.html"> 
-<span class="menu-text">01 · Primeros pasos en R</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Capitulo-02.html"> 
-<span class="menu-text">02 · ¿Qué nos dicen los datos?</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./recursos.html"> 
-<span class="menu-text">Scripts, datos y bibliografía</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Navegación</a></li><li class="breadcrumb-item"><a href="./Capitulo-01.html">01 · Primeros pasos en R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Capitulo-01.html">Sección I · Primer encuentro con los datos</a></li><li class="breadcrumb-item"><a href="./Capitulo-01.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 1. Nuestros primeros pasos en R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -169,9 +137,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Ciencia Animal a través de los Datos</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Ciencia-Animal-a-través-de-los-Datos.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Buscar"></div>
@@ -179,10 +156,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ciencia Animal a través de los Datos</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Navegación</span></a>
+ <span class="menu-text">Sección I · Primer encuentro con los datos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -190,51 +173,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inicio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Capitulo-01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">01 · Primeros pasos en R</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 1. Nuestros primeros pasos en R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Capitulo-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · ¿Qué nos dicen los datos?</span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Capítulo 2. ¿Qué nos dicen nuestros datos?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./recursos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scripts, datos y bibliografía</span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Recursos del curso</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Siguientes etapas</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
- <span class="menu-text">Sección II · Variabilidad e incertidumbre</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Sección III · Decisiones experimentales</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Sección IV · Regresión</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Sección V · Mediciones repetidas</span>
-  </li>
       </ul>
   </li>
     </ul>
@@ -244,31 +198,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">En esta página</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#por-qué-aprender-r-para-estudiar-ciencia-animal" id="toc-por-qué-aprender-r-para-estudiar-ciencia-animal" class="nav-link active" data-scroll-target="#por-qué-aprender-r-para-estudiar-ciencia-animal"><span class="header-section-number">1</span> ¿Por qué aprender R para estudiar Ciencia Animal?</a></li>
-  <li><a href="#conociendo-r-rstudio-y-los-paquetes" id="toc-conociendo-r-rstudio-y-los-paquetes" class="nav-link" data-scroll-target="#conociendo-r-rstudio-y-los-paquetes"><span class="header-section-number">2</span> Conociendo R, RStudio y los paquetes</a></li>
-  <li><a href="#nuestros-primeros-objetos" id="toc-nuestros-primeros-objetos" class="nav-link" data-scroll-target="#nuestros-primeros-objetos"><span class="header-section-number">3</span> Nuestros primeros objetos</a></li>
-  <li><a href="#secuencias-y-vectores" id="toc-secuencias-y-vectores" class="nav-link" data-scroll-target="#secuencias-y-vectores"><span class="header-section-number">4</span> Secuencias y vectores</a></li>
-  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">5</span> Matrices</a></li>
-  <li><a href="#funciones-y-ayuda" id="toc-funciones-y-ayuda" class="nav-link" data-scroll-target="#funciones-y-ayuda"><span class="header-section-number">6</span> Funciones y ayuda</a></li>
-  <li><a href="#variables-y-bases-de-datos" id="toc-variables-y-bases-de-datos" class="nav-link" data-scroll-target="#variables-y-bases-de-datos"><span class="header-section-number">7</span> Variables y bases de datos</a>
+  <li><a href="#por-qué-aprender-r-para-estudiar-ciencia-animal" id="toc-por-qué-aprender-r-para-estudiar-ciencia-animal" class="nav-link active" data-scroll-target="#por-qué-aprender-r-para-estudiar-ciencia-animal"><span class="header-section-number">2.1</span> ¿Por qué aprender R para estudiar Ciencia Animal?</a></li>
+  <li><a href="#conociendo-r-rstudio-y-los-paquetes" id="toc-conociendo-r-rstudio-y-los-paquetes" class="nav-link" data-scroll-target="#conociendo-r-rstudio-y-los-paquetes"><span class="header-section-number">2.2</span> Conociendo R, RStudio y los paquetes</a></li>
+  <li><a href="#nuestros-primeros-objetos" id="toc-nuestros-primeros-objetos" class="nav-link" data-scroll-target="#nuestros-primeros-objetos"><span class="header-section-number">2.3</span> Nuestros primeros objetos</a></li>
+  <li><a href="#secuencias-y-vectores" id="toc-secuencias-y-vectores" class="nav-link" data-scroll-target="#secuencias-y-vectores"><span class="header-section-number">2.4</span> Secuencias y vectores</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">2.5</span> Matrices</a></li>
+  <li><a href="#funciones-y-ayuda" id="toc-funciones-y-ayuda" class="nav-link" data-scroll-target="#funciones-y-ayuda"><span class="header-section-number">2.6</span> Funciones y ayuda</a></li>
+  <li><a href="#variables-y-bases-de-datos" id="toc-variables-y-bases-de-datos" class="nav-link" data-scroll-target="#variables-y-bases-de-datos"><span class="header-section-number">2.7</span> Variables y bases de datos</a>
   <ul class="collapse">
-  <li><a href="#construyamos-nuestra-base-de-15-becerros" id="toc-construyamos-nuestra-base-de-15-becerros" class="nav-link" data-scroll-target="#construyamos-nuestra-base-de-15-becerros"><span class="header-section-number">7.1</span> Construyamos nuestra base de 15 becerros</a></li>
+  <li><a href="#construyamos-nuestra-base-de-15-becerros" id="toc-construyamos-nuestra-base-de-15-becerros" class="nav-link" data-scroll-target="#construyamos-nuestra-base-de-15-becerros"><span class="header-section-number">2.7.1</span> Construyamos nuestra base de 15 becerros</a></li>
   </ul></li>
-  <li><a href="#revisando-los-datos-antes-del-análisis" id="toc-revisando-los-datos-antes-del-análisis" class="nav-link" data-scroll-target="#revisando-los-datos-antes-del-análisis"><span class="header-section-number">8</span> Revisando los datos antes del análisis</a></li>
-  <li><a href="#actividad-del-capítulo" id="toc-actividad-del-capítulo" class="nav-link" data-scroll-target="#actividad-del-capítulo"><span class="header-section-number">9</span> Actividad del capítulo</a></li>
-  <li><a href="#lo-que-aprendimos" id="toc-lo-que-aprendimos" class="nav-link" data-scroll-target="#lo-que-aprendimos"><span class="header-section-number">10</span> Lo que aprendimos</a></li>
+  <li><a href="#revisando-los-datos-antes-del-análisis" id="toc-revisando-los-datos-antes-del-análisis" class="nav-link" data-scroll-target="#revisando-los-datos-antes-del-análisis"><span class="header-section-number">2.8</span> Revisando los datos antes del análisis</a></li>
+  <li><a href="#actividad-del-capítulo" id="toc-actividad-del-capítulo" class="nav-link" data-scroll-target="#actividad-del-capítulo"><span class="header-section-number">2.9</span> Actividad del capítulo</a></li>
+  <li><a href="#lo-que-aprendimos" id="toc-lo-que-aprendimos" class="nav-link" data-scroll-target="#lo-que-aprendimos"><span class="header-section-number">2.10</span> Lo que aprendimos</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/edit/main/Capitulo-01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Navegación</a></li><li class="breadcrumb-item"><a href="./Capitulo-01.html">01 · Primeros pasos en R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Capitulo-01.html">Sección I · Primer encuentro con los datos</a></li><li class="breadcrumb-item"><a href="./Capitulo-01.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 1. Nuestros primeros pasos en R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Capítulo 1. Nuestros primeros pasos en R</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 1. Nuestros primeros pasos en R</span></h1>
 <p class="subtitle lead">Ciencia Animal a través de los Datos</p>
 </div>
 
@@ -305,15 +259,15 @@ Nota
 <p><strong>Duración sugerida: 6 horas.</strong> Introducción a R, estructuras de datos y bases de datos.</p>
 </div>
 </div>
-<section id="por-qué-aprender-r-para-estudiar-ciencia-animal" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="por-qué-aprender-r-para-estudiar-ciencia-animal"><span class="header-section-number">1</span> ¿Por qué aprender R para estudiar Ciencia Animal?</h2>
+<section id="por-qué-aprender-r-para-estudiar-ciencia-animal" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="por-qué-aprender-r-para-estudiar-ciencia-animal"><span class="header-section-number">2.1</span> ¿Por qué aprender R para estudiar Ciencia Animal?</h2>
 <p>En Ciencia Animal trabajamos continuamente con datos. Registramos el peso de los animales, su consumo de alimento, la ganancia diaria de peso, la producción de leche y diferentes indicadores relacionados con la salud y el desempeño productivo. Sin embargo, una base de datos no explica por sí misma el fenómeno que estudiamos: necesitamos comprender qué contiene, cómo se obtuvo y qué preguntas podemos responder con ella.</p>
 <p>R es un lenguaje y entorno de análisis que permite organizar información, realizar cálculos, generar gráficos y aplicar procedimientos estadísticos. Una ventaja importante es que podemos guardar las instrucciones utilizadas y ejecutarlas nuevamente. La reproducibilidad comienza con decisiones sencillas: conservar el código, identificar las variables y registrar adecuadamente los datos.</p>
 <p>En esta práctica utilizaremos R como una herramienta para comprender los datos, no como un fin en sí mismo. Comenzaremos con operaciones simples y construiremos progresivamente un conjunto de datos de 15 becerros (Webb, 2021).</p>
 <p><strong>Al terminar este capítulo podrás:</strong> crear objetos y vectores; distinguir matrices y bases de datos; reconocer variables categóricas y numéricas; seleccionar registros; y comprobar que los datos fueron importados o creados correctamente.</p>
 </section>
-<section id="conociendo-r-rstudio-y-los-paquetes" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="conociendo-r-rstudio-y-los-paquetes"><span class="header-section-number">2</span> Conociendo R, RStudio y los paquetes</h2>
+<section id="conociendo-r-rstudio-y-los-paquetes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="conociendo-r-rstudio-y-los-paquetes"><span class="header-section-number">2.2</span> Conociendo R, RStudio y los paquetes</h2>
 <p><strong>R</strong> ejecuta los cálculos y procedimientos. <strong>RStudio</strong> es un entorno que facilita escribir scripts, examinar objetos y visualizar resultados. Un <em>script</em> es un archivo de texto con instrucciones de R; guardarlo permite repetir un análisis sin reconstruir todas las operaciones manualmente.</p>
 <p>Los paquetes reúnen funciones adicionales. Se instalan una sola vez por equipo y se cargan en cada sesión donde se necesiten. Empezaremos con <code>psych</code> y más adelante utilizaremos <code>ggplot2</code>, <code>ggpubr</code> y <code>yarrr</code>.</p>
 <div class="cell">
@@ -327,8 +281,8 @@ Nota
 </div>
 <p>En RStudio, el editor de scripts contiene las instrucciones; la consola muestra su ejecución; el panel <em>Environment</em> permite observar los objetos; y el panel de gráficos muestra las figuras producidas.</p>
 </section>
-<section id="nuestros-primeros-objetos" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="nuestros-primeros-objetos"><span class="header-section-number">3</span> Nuestros primeros objetos</h2>
+<section id="nuestros-primeros-objetos" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="nuestros-primeros-objetos"><span class="header-section-number">2.3</span> Nuestros primeros objetos</h2>
 <p>Un <strong>objeto</strong> almacena un valor o una estructura de información para utilizarla posteriormente. El símbolo <code>&lt;-</code> asigna un valor al nombre elegido. Cuando escribimos el nombre del objeto, R muestra su contenido; con <code>str()</code> observamos su estructura.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### GENERANDO OBJETOS ----------------</span></span>
@@ -378,8 +332,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="secuencias-y-vectores" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="secuencias-y-vectores"><span class="header-section-number">4</span> Secuencias y vectores</h2>
+<section id="secuencias-y-vectores" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="secuencias-y-vectores"><span class="header-section-number">2.4</span> Secuencias y vectores</h2>
 <p>Una <strong>secuencia</strong> es una sucesión de valores ordenados. Con el operador <code>:</code> podemos generar números enteros consecutivos. Esto será útil para crear identificadores de animales y numerar observaciones.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### SECUENCIAS ----------------</span></span>
@@ -458,8 +412,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="matrices" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="matrices"><span class="header-section-number">5</span> Matrices</h2>
+<section id="matrices" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="matrices"><span class="header-section-number">2.5</span> Matrices</h2>
 <p>Una <strong>matriz</strong> organiza elementos del mismo tipo en filas y columnas. Para seleccionar uno de sus elementos indicamos primero la fila y después la columna, separadas por una coma.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### MATRICES ----------------</span></span>
@@ -499,57 +453,47 @@ Nota
 </div>
 <p>Las matrices resultan útiles para diversos cálculos, pero en experimentación animal normalmente necesitamos reunir columnas con diferentes tipos de información. Para ello trabajaremos con <code>data.frame</code>.</p>
 </section>
-<section id="funciones-y-ayuda" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="funciones-y-ayuda"><span class="header-section-number">6</span> Funciones y ayuda</h2>
+<section id="funciones-y-ayuda" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="funciones-y-ayuda"><span class="header-section-number">2.6</span> Funciones y ayuda</h2>
 <p>Una <strong>función</strong> realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### FUNCIONES ----------------</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Y)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> num 11</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(Y)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "numeric"</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "becerro"    "GANANCIA"   "MATRIZ"     "MATRIZ2"    "PESO"      
- [6] "PESO.FINAL" "SECUENCIA"  "UNO"        "VECTOR"     "X"         
-[11] "Y"         </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### ¿NECESITAS AYUDA? ----------------</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>?mean</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>?str</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>?hist</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Y)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(Y)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="do">#### ¿NECESITAS AYUDA? ----------------</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>?mean</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>?str</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>?hist</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>En R, <code>mode()</code> informa sobre el modo de almacenamiento del objeto: <strong>no debe confundirse con la moda estadística</strong>, que veremos en el capítulo siguiente. La función <code>ls()</code> muestra los objetos disponibles en el entorno.</p>
 </section>
-<section id="variables-y-bases-de-datos" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="variables-y-bases-de-datos"><span class="header-section-number">7</span> Variables y bases de datos</h2>
+<section id="variables-y-bases-de-datos" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="variables-y-bases-de-datos"><span class="header-section-number">2.7</span> Variables y bases de datos</h2>
 <p>Una <strong>variable</strong> es una característica que registramos y que puede asumir valores diferentes entre individuos u observaciones. Las variables <strong>cuantitativas</strong> representan cantidades medibles o contables, como peso o producción de leche; las <strong>categóricas</strong> identifican grupos o cualidades, como tratamiento, raza o sexo (Webb, 2021).</p>
 <p>En una base de datos, por lo general cada fila corresponde a una observación y cada columna a una variable. Un identificador de animal puede expresarse mediante números sin que ello lo convierta en una medida biológica continua.</p>
-<section id="construyamos-nuestra-base-de-15-becerros" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="construyamos-nuestra-base-de-15-becerros"><span class="header-section-number">7.1</span> Construyamos nuestra base de 15 becerros</h3>
+<section id="construyamos-nuestra-base-de-15-becerros" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="construyamos-nuestra-base-de-15-becerros"><span class="header-section-number">2.7.1</span> Construyamos nuestra base de 15 becerros</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### GENERAMOS UNA BASE DE DATOS ----------------</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>becerro <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>TX <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>,</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>GAN <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">270</span>, <span class="dv">300</span>, <span class="dv">280</span>, <span class="dv">280</span>, <span class="dv">270</span>,</span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">290</span>, <span class="dv">250</span>, <span class="dv">280</span>, <span class="dv">290</span>, <span class="dv">280</span>,</span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">290</span>, <span class="dv">340</span>, <span class="dv">330</span>, <span class="dv">300</span>, <span class="dv">340</span></span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="do">#### UNIMOS COLUMNAS ----------------</span></span>
-<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">cbind</span>(becerro, TX, GAN)</span>
-<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>DATA</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### GENERAMOS UNA BASE DE DATOS ----------------</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>becerro <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>TX <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>GAN <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">270</span>, <span class="dv">300</span>, <span class="dv">280</span>, <span class="dv">280</span>, <span class="dv">270</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">290</span>, <span class="dv">250</span>, <span class="dv">280</span>, <span class="dv">290</span>, <span class="dv">280</span>,</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">290</span>, <span class="dv">340</span>, <span class="dv">330</span>, <span class="dv">300</span>, <span class="dv">340</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="do">#### UNIMOS COLUMNAS ----------------</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">cbind</span>(becerro, TX, GAN)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>DATA</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      becerro TX GAN
  [1,]       1  1 270
@@ -568,15 +512,15 @@ Nota
 [14,]      14  3 300
 [15,]      15  3 340</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>DATA[<span class="dv">8</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>DATA[<span class="dv">8</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>becerro      TX     GAN 
       8       2     280 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### CONVERTIMOS A DATA FRAME ----------------</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(DATA)</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>DATA<span class="sc">$</span>TX <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DATA<span class="sc">$</span>TX)</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### CONVERTIMOS A DATA FRAME ----------------</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(DATA)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>DATA<span class="sc">$</span>TX <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DATA<span class="sc">$</span>TX)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   15 obs. of  3 variables:
  $ becerro: num  1 2 3 4 5 6 7 8 9 10 ...
@@ -587,22 +531,22 @@ Nota
 <p>La columna <code>becerro</code> identifica cada animal; <code>TX</code> indica el grupo de tratamiento; y <code>GAN</code> contiene la ganancia diaria de peso en <strong>g/día</strong>. La función <code>as.factor()</code> permite indicar que <code>TX</code> representa categorías, no una cantidad continua.</p>
 <p>Una vez comprendido el procedimiento anterior, podemos crear la misma estructura directamente:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### OTRA FORMA DE CREAR LA BASE ----------------</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">becerro =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">TX =</span> <span class="fu">factor</span>(<span class="fu">c</span>(</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>,</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  )),</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">GAN =</span> <span class="fu">c</span>(</span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">270</span>, <span class="dv">300</span>, <span class="dv">280</span>, <span class="dv">280</span>, <span class="dv">270</span>,</span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">290</span>, <span class="dv">250</span>, <span class="dv">280</span>, <span class="dv">290</span>, <span class="dv">280</span>,</span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">290</span>, <span class="dv">340</span>, <span class="dv">330</span>, <span class="dv">300</span>, <span class="dv">340</span></span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### OTRA FORMA DE CREAR LA BASE ----------------</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">becerro =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">TX =</span> <span class="fu">factor</span>(<span class="fu">c</span>(</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  )),</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">GAN =</span> <span class="fu">c</span>(</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">270</span>, <span class="dv">300</span>, <span class="dv">280</span>, <span class="dv">280</span>, <span class="dv">270</span>,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">290</span>, <span class="dv">250</span>, <span class="dv">280</span>, <span class="dv">290</span>, <span class="dv">280</span>,</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">290</span>, <span class="dv">340</span>, <span class="dv">330</span>, <span class="dv">300</span>, <span class="dv">340</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   15 obs. of  3 variables:
  $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...
@@ -612,12 +556,12 @@ Nota
 </div>
 </section>
 </section>
-<section id="revisando-los-datos-antes-del-análisis" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="revisando-los-datos-antes-del-análisis"><span class="header-section-number">8</span> Revisando los datos antes del análisis</h2>
+<section id="revisando-los-datos-antes-del-análisis" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="revisando-los-datos-antes-del-análisis"><span class="header-section-number">2.8</span> Revisando los datos antes del análisis</h2>
 <p>Antes de aplicar cualquier procedimiento, debemos comprobar que los registros contienen los valores esperados y que las variables tienen el tipo correcto. Un error en la organización de datos puede cambiar el significado del análisis.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### INSPECCIÓN DE LA BASE ----------------</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### INSPECCIÓN DE LA BASE ----------------</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  becerro TX GAN
 1       1  1 270
@@ -627,7 +571,7 @@ Nota
 5       5  1 270
 6       6  2 290</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    becerro     TX         GAN       
  Min.   : 1.0   1:5   Min.   :250.0  
@@ -637,28 +581,28 @@ Nota
  3rd Qu.:11.5         3rd Qu.:300.0  
  Max.   :15.0         Max.   :340.0  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   15 obs. of  3 variables:
  $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...
  $ TX     : Factor w/ 3 levels "1","2","3": 1 1 1 1 1 2 2 2 2 2 ...
  $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(DATA)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### EXTRAER OBSERVACIONES ----------------</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>DATA[<span class="dv">8</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### EXTRAER OBSERVACIONES ----------------</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>DATA[<span class="dv">8</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  becerro TX GAN
 8       8  2 280</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>DATA[DATA<span class="sc">$</span>TX <span class="sc">==</span> <span class="dv">1</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>DATA[DATA<span class="sc">$</span>TX <span class="sc">==</span> <span class="dv">1</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  becerro TX GAN
 1       1  1 270
@@ -667,13 +611,13 @@ Nota
 4       4  1 280
 5       5  1 270</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>DATA[DATA<span class="sc">$</span>becerro <span class="sc">==</span> <span class="dv">10</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>DATA[DATA<span class="sc">$</span>becerro <span class="sc">==</span> <span class="dv">10</span>, ]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   becerro TX GAN
 10      10  2 280</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### DATOS FALTANTES ----------------</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(DATA))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### DATOS FALTANTES ----------------</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(DATA))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>becerro      TX     GAN 
       0       0       0 </code></pre>
@@ -681,8 +625,8 @@ Nota
 </div>
 <p>En los ejercicios siguientes retomaremos estos mismos registros para estudiar la media, la desviación estándar y la representación gráfica de la variabilidad.</p>
 </section>
-<section id="actividad-del-capítulo" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="actividad-del-capítulo"><span class="header-section-number">9</span> Actividad del capítulo</h2>
+<section id="actividad-del-capítulo" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="actividad-del-capítulo"><span class="header-section-number">2.9</span> Actividad del capítulo</h2>
 <ol type="1">
 <li>Identifica cuántos becerros y tratamientos contiene la base.</li>
 <li>Explica qué representa cada columna y cuál es la variable de respuesta.</li>
@@ -692,8 +636,8 @@ Nota
 <li>Exporta tus instrucciones a un archivo <code>.R</code> y consérvalo para el capítulo siguiente.</li>
 </ol>
 </section>
-<section id="lo-que-aprendimos" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="lo-que-aprendimos"><span class="header-section-number">10</span> Lo que aprendimos</h2>
+<section id="lo-que-aprendimos" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="lo-que-aprendimos"><span class="header-section-number">2.10</span> Lo que aprendimos</h2>
 <p>Hemos construido objetos, vectores, matrices y una base de datos. También reconocimos variables cuantitativas y categóricas, y comprobamos la estructura de los registros. En el próximo capítulo describiremos sus valores y estudiaremos por qué los animales no responden exactamente de la misma manera.</p>
 <hr>
 <p>Dr.&nbsp;Juan Carlos Ángeles Hernández<br>
@@ -1104,6 +1048,18 @@ FMVZ–UNAM · Sección I</p>
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Ciencia Animal a través de los Datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ciencia Animal a través de los Datos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Capitulo-02.html" class="pagination-link" aria-label="Capítulo 2. ¿Qué nos dicen nuestros datos?">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Capítulo 2. ¿Qué nos dicen nuestros datos?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1112,7 +1068,7 @@ FMVZ–UNAM · Sección I</p>
     </div>   
     <div class="nav-footer-center">
 <p>Dr.&nbsp;Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM</p>
-</div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/edit/main/Capitulo-01.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

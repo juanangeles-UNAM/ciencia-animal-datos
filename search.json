@@ -1,26 +1,286 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Ciencia Animal a través de los Datos",
+    "section": "",
+    "text": "Primer encuentro con los datos\nEn esta primera sección aprenderemos a construir bases de datos, reconocer variables y describir su variabilidad. Utilizaremos ejemplos de becerros y corredores, con prácticas guiadas en R, gráficos y actividades de interpretación. El contenido se organiza en dos capítulos que suman 14 horas de trabajo.\nComenzar la Sección I",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciencia Animal a través de los Datos</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#primer-encuentro-con-los-datos",
+    "href": "index.html#primer-encuentro-con-los-datos",
+    "title": "Ciencia Animal a través de los Datos",
+    "section": "",
+    "text": "NotaCAPÍTULO 1 · 6 HORAS\n\n\n\nNuestros primeros pasos en R\nObjetos, vectores, matrices, funciones, variables y construcción de una base con 15 becerros.\nLeer capítulo →\n\n\n\n\n\n\n\n\n\n\nNotaCAPÍTULO 2 · 8 HORAS\n\n\n\n¿Qué nos dicen nuestros datos?\nMedia, mediana, variabilidad, gráficos, valores atípicos y descripción de tratamientos.\nLeer capítulo →\n\n\n\n\n\n\n\n\n\n\nTipCómo utilizar el material\n\n\n\nLee las definiciones, copia cada bloque de R, ejecútalo en RStudio y compara tus resultados con los ejemplos. Los scripts y bases de datos están disponibles en la sección de recursos.\n\n\n\n\n\nDr. Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM · Sección I",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Ciencia Animal a través de los Datos</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html",
+    "href": "Capitulo-01.html",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "",
+    "text": "2.1 ¿Por qué aprender R para estudiar Ciencia Animal?\nEn Ciencia Animal trabajamos continuamente con datos. Registramos el peso de los animales, su consumo de alimento, la ganancia diaria de peso, la producción de leche y diferentes indicadores relacionados con la salud y el desempeño productivo. Sin embargo, una base de datos no explica por sí misma el fenómeno que estudiamos: necesitamos comprender qué contiene, cómo se obtuvo y qué preguntas podemos responder con ella.\nR es un lenguaje y entorno de análisis que permite organizar información, realizar cálculos, generar gráficos y aplicar procedimientos estadísticos. Una ventaja importante es que podemos guardar las instrucciones utilizadas y ejecutarlas nuevamente. La reproducibilidad comienza con decisiones sencillas: conservar el código, identificar las variables y registrar adecuadamente los datos.\nEn esta práctica utilizaremos R como una herramienta para comprender los datos, no como un fin en sí mismo. Comenzaremos con operaciones simples y construiremos progresivamente un conjunto de datos de 15 becerros (Webb, 2021).\nAl terminar este capítulo podrás: crear objetos y vectores; distinguir matrices y bases de datos; reconocer variables categóricas y numéricas; seleccionar registros; y comprobar que los datos fueron importados o creados correctamente.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#conociendo-r-rstudio-y-los-paquetes",
+    "href": "Capitulo-01.html#conociendo-r-rstudio-y-los-paquetes",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.2 Conociendo R, RStudio y los paquetes",
+    "text": "2.2 Conociendo R, RStudio y los paquetes\nR ejecuta los cálculos y procedimientos. RStudio es un entorno que facilita escribir scripts, examinar objetos y visualizar resultados. Un script es un archivo de texto con instrucciones de R; guardarlo permite repetir un análisis sin reconstruir todas las operaciones manualmente.\nLos paquetes reúnen funciones adicionales. Se instalan una sola vez por equipo y se cargan en cada sesión donde se necesiten. Empezaremos con psych y más adelante utilizaremos ggplot2, ggpubr y yarrr.\n\n#### PAQUETES A DESCARGAR ----------------\n\n# Ejecutar esta instrucción una vez:\ninstall.packages(\"psych\")\n\n#### CARGAMOS EL PAQUETE ----------------\nlibrary(psych)\n\nEn RStudio, el editor de scripts contiene las instrucciones; la consola muestra su ejecución; el panel Environment permite observar los objetos; y el panel de gráficos muestra las figuras producidas.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#nuestros-primeros-objetos",
+    "href": "Capitulo-01.html#nuestros-primeros-objetos",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.3 Nuestros primeros objetos",
+    "text": "2.3 Nuestros primeros objetos\nUn objeto almacena un valor o una estructura de información para utilizarla posteriormente. El símbolo &lt;- asigna un valor al nombre elegido. Cuando escribimos el nombre del objeto, R muestra su contenido; con str() observamos su estructura.\n\n#### GENERANDO OBJETOS ----------------\nX &lt;- 10\nX\n\n[1] 10\n\nstr(X)\n\n num 10\n\n#### OPERACIONES MATEMÁTICAS ----------------\nY &lt;- 6 + 5\nY\n\n[1] 11\n\nstr(Y)\n\n num 11\n\n\nPodemos utilizar exactamente el mismo procedimiento para describir un problema sencillo de producción animal.\n\n#### PESO DE UN BECERRO ----------------\nPESO &lt;- 250\nGANANCIA &lt;- 30\nPESO.FINAL &lt;- PESO + GANANCIA\nPESO.FINAL\n\n[1] 280\n\n\nEn este ejemplo el peso final sería de 280 kg. La importancia del ejercicio es reconocer que R conserva los valores y permite combinarlos en nuevas operaciones.\n\n\n\n\n\n\nTipExperimentemos\n\n\n\nCambia el peso inicial a 275 kg y la ganancia a 42 kg. ¿Qué resultado obtienes? ¿Qué sucede si ejecutas solamente la última línea sin haber creado antes los objetos?",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#secuencias-y-vectores",
+    "href": "Capitulo-01.html#secuencias-y-vectores",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.4 Secuencias y vectores",
+    "text": "2.4 Secuencias y vectores\nUna secuencia es una sucesión de valores ordenados. Con el operador : podemos generar números enteros consecutivos. Esto será útil para crear identificadores de animales y numerar observaciones.\n\n#### SECUENCIAS ----------------\nSECUENCIA &lt;- 10:300\nSECUENCIA\n\n  [1]  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27\n [19]  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45\n [37]  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63\n [55]  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81\n [73]  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99\n [91] 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117\n[109] 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135\n[127] 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153\n[145] 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171\n[163] 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189\n[181] 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207\n[199] 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225\n[217] 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243\n[235] 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261\n[253] 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279\n[271] 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297\n[289] 298 299 300\n\nstr(SECUENCIA)\n\n int [1:291] 10 11 12 13 14 15 16 17 18 19 ...\n\nbecerro &lt;- 1:15\nbecerro\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15\n\nlength(becerro)\n\n[1] 15\n\n\nUn vector es una estructura de R que contiene varios elementos del mismo tipo. La función c() permite combinar valores y los corchetes permiten seleccionar sus posiciones. En R la primera posición se identifica con el número 1.\n\n#### VECTORES ----------------\nVECTOR &lt;- c(\"A\", \"B\", \"C\", \"D\")\nVECTOR\n\n[1] \"A\" \"B\" \"C\" \"D\"\n\nstr(VECTOR)\n\n chr [1:4] \"A\" \"B\" \"C\" \"D\"\n\n#### EXTRAER ELEMENTOS ----------------\nVECTOR[1]\n\n[1] \"A\"\n\nVECTOR[2]\n\n[1] \"B\"\n\nVECTOR[1:3]\n\n[1] \"A\" \"B\" \"C\"\n\n\n\n\n\n\n\n\nTipEjercicio\n\n\n\nCrea un vector con pesos de cinco ovejas: 45, 48, 52, 47 y 50 kg. Recupera la tercera observación y calcula el promedio con mean().",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#matrices",
+    "href": "Capitulo-01.html#matrices",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.5 Matrices",
+    "text": "2.5 Matrices\nUna matriz organiza elementos del mismo tipo en filas y columnas. Para seleccionar uno de sus elementos indicamos primero la fila y después la columna, separadas por una coma.\n\n#### MATRICES ----------------\nMATRIZ &lt;- matrix(5, nrow = 5, ncol = 5)\nMATRIZ\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    5    5    5    5    5\n[2,]    5    5    5    5    5\n[3,]    5    5    5    5    5\n[4,]    5    5    5    5    5\n[5,]    5    5    5    5    5\n\nMATRIZ2 &lt;- matrix(\n  c(\n    0, 1, 1,\n    1, 0, 1,\n    1, 1, 0\n  ),\n  nrow = 3,\n  ncol = 3\n)\n\nMATRIZ2\n\n     [,1] [,2] [,3]\n[1,]    0    1    1\n[2,]    1    0    1\n[3,]    1    1    0\n\n#### PRIMERO FILA Y DESPUÉS COLUMNA ----------------\nUNO &lt;- MATRIZ2[3, 2]\nUNO\n\n[1] 1\n\n\nLas matrices resultan útiles para diversos cálculos, pero en experimentación animal normalmente necesitamos reunir columnas con diferentes tipos de información. Para ello trabajaremos con data.frame.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#funciones-y-ayuda",
+    "href": "Capitulo-01.html#funciones-y-ayuda",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.6 Funciones y ayuda",
+    "text": "2.6 Funciones y ayuda\nUna función realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.\n\n#### FUNCIONES ----------------\nstr(Y)\nmode(Y)\nls()\n\n#### ¿NECESITAS AYUDA? ----------------\n?mean\n?str\n?hist\n\nEn R, mode() informa sobre el modo de almacenamiento del objeto: no debe confundirse con la moda estadística, que veremos en el capítulo siguiente. La función ls() muestra los objetos disponibles en el entorno.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#variables-y-bases-de-datos",
+    "href": "Capitulo-01.html#variables-y-bases-de-datos",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.7 Variables y bases de datos",
+    "text": "2.7 Variables y bases de datos\nUna variable es una característica que registramos y que puede asumir valores diferentes entre individuos u observaciones. Las variables cuantitativas representan cantidades medibles o contables, como peso o producción de leche; las categóricas identifican grupos o cualidades, como tratamiento, raza o sexo (Webb, 2021).\nEn una base de datos, por lo general cada fila corresponde a una observación y cada columna a una variable. Un identificador de animal puede expresarse mediante números sin que ello lo convierta en una medida biológica continua.\n\n2.7.1 Construyamos nuestra base de 15 becerros\n\n#### GENERAMOS UNA BASE DE DATOS ----------------\nbecerro &lt;- 1:15\n\nTX &lt;- c(\n  1, 1, 1, 1, 1,\n  2, 2, 2, 2, 2,\n  3, 3, 3, 3, 3\n)\n\nGAN &lt;- c(\n  270, 300, 280, 280, 270,\n  290, 250, 280, 290, 280,\n  290, 340, 330, 300, 340\n)\n\n#### UNIMOS COLUMNAS ----------------\nDATA &lt;- cbind(becerro, TX, GAN)\nDATA\n\n      becerro TX GAN\n [1,]       1  1 270\n [2,]       2  1 300\n [3,]       3  1 280\n [4,]       4  1 280\n [5,]       5  1 270\n [6,]       6  2 290\n [7,]       7  2 250\n [8,]       8  2 280\n [9,]       9  2 290\n[10,]      10  2 280\n[11,]      11  3 290\n[12,]      12  3 340\n[13,]      13  3 330\n[14,]      14  3 300\n[15,]      15  3 340\n\nDATA[8, ]\n\nbecerro      TX     GAN \n      8       2     280 \n\n#### CONVERTIMOS A DATA FRAME ----------------\nDATA &lt;- as.data.frame(DATA)\nDATA$TX &lt;- as.factor(DATA$TX)\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: num  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\n\nLa columna becerro identifica cada animal; TX indica el grupo de tratamiento; y GAN contiene la ganancia diaria de peso en g/día. La función as.factor() permite indicar que TX representa categorías, no una cantidad continua.\nUna vez comprendido el procedimiento anterior, podemos crear la misma estructura directamente:\n\n#### OTRA FORMA DE CREAR LA BASE ----------------\nDATA &lt;- data.frame(\n  becerro = 1:15,\n  TX = factor(c(\n    1, 1, 1, 1, 1,\n    2, 2, 2, 2, 2,\n    3, 3, 3, 3, 3\n  )),\n  GAN = c(\n    270, 300, 280, 280, 270,\n    290, 250, 280, 290, 280,\n    290, 340, 330, 300, 340\n  )\n)\n\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#revisando-los-datos-antes-del-análisis",
+    "href": "Capitulo-01.html#revisando-los-datos-antes-del-análisis",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.8 Revisando los datos antes del análisis",
+    "text": "2.8 Revisando los datos antes del análisis\nAntes de aplicar cualquier procedimiento, debemos comprobar que los registros contienen los valores esperados y que las variables tienen el tipo correcto. Un error en la organización de datos puede cambiar el significado del análisis.\n\n#### INSPECCIÓN DE LA BASE ----------------\nhead(DATA)\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n6       6  2 290\n\nsummary(DATA)\n\n    becerro     TX         GAN       \n Min.   : 1.0   1:5   Min.   :250.0  \n 1st Qu.: 4.5   2:5   1st Qu.:280.0  \n Median : 8.0   3:5   Median :290.0  \n Mean   : 8.0         Mean   :292.7  \n 3rd Qu.:11.5         3rd Qu.:300.0  \n Max.   :15.0         Max.   :340.0  \n\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\nnrow(DATA)\n\n[1] 15\n\nncol(DATA)\n\n[1] 3\n\n#### EXTRAER OBSERVACIONES ----------------\nDATA[8, ]\n\n  becerro TX GAN\n8       8  2 280\n\nDATA[DATA$TX == 1, ]\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n\nDATA[DATA$becerro == 10, ]\n\n   becerro TX GAN\n10      10  2 280\n\n#### DATOS FALTANTES ----------------\ncolSums(is.na(DATA))\n\nbecerro      TX     GAN \n      0       0       0 \n\n\nEn los ejercicios siguientes retomaremos estos mismos registros para estudiar la media, la desviación estándar y la representación gráfica de la variabilidad.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#actividad-del-capítulo",
+    "href": "Capitulo-01.html#actividad-del-capítulo",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.9 Actividad del capítulo",
+    "text": "2.9 Actividad del capítulo\n\nIdentifica cuántos becerros y tratamientos contiene la base.\nExplica qué representa cada columna y cuál es la variable de respuesta.\nDescribe por qué TX debe almacenarse como factor.\nRecupera solamente las observaciones del tratamiento 2.\nComprueba si existen datos faltantes.\nExporta tus instrucciones a un archivo .R y consérvalo para el capítulo siguiente.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-01.html#lo-que-aprendimos",
+    "href": "Capitulo-01.html#lo-que-aprendimos",
+    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "section": "2.10 Lo que aprendimos",
+    "text": "2.10 Lo que aprendimos\nHemos construido objetos, vectores, matrices y una base de datos. También reconocimos variables cuantitativas y categóricas, y comprobamos la estructura de los registros. En el próximo capítulo describiremos sus valores y estudiaremos por qué los animales no responden exactamente de la misma manera.\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html",
+    "href": "Capitulo-02.html",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "",
+    "text": "3.1 Recuperando nuestra base de becerros\nEn el capítulo anterior organizamos las observaciones de 15 becerros distribuidos en tres tratamientos. Ahora queremos responder algunas preguntas: ¿cuál es su ganancia de peso promedio?, ¿todos los animales responden igual?, ¿qué tan variables son los resultados?, ¿qué información aporta un gráfico que no encontramos fácilmente en una tabla?\nLa estadística descriptiva reúne procedimientos para organizar, resumir y representar las observaciones mediante tablas, medidas numéricas y gráficos. Permite explorar el centro, la dispersión y la forma de los datos, pero por sí sola no demuestra que una diferencia entre grupos se deba al tratamiento (Webb, 2021).\n#### GENERAMOS NUESTRA BASE DE DATOS ----------------\nbecerro &lt;- 1:15\n\nTX &lt;- c(\n  1, 1, 1, 1, 1,\n  2, 2, 2, 2, 2,\n  3, 3, 3, 3, 3\n)\n\nGAN &lt;- c(\n  270, 300, 280, 280, 270,\n  290, 250, 280, 290, 280,\n  290, 340, 330, 300, 340\n)\n\nDATA &lt;- data.frame(becerro, TX = factor(TX), GAN)\n\n#### INSPECCIÓN DE DATOS ----------------\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\nhead(DATA)\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n6       6  2 290\n\nsummary(DATA)\n\n    becerro     TX         GAN       \n Min.   : 1.0   1:5   Min.   :250.0  \n 1st Qu.: 4.5   2:5   1st Qu.:280.0  \n Median : 8.0   3:5   Median :290.0  \n Mean   : 8.0         Mean   :292.7  \n 3rd Qu.:11.5         3rd Qu.:300.0  \n Max.   :15.0         Max.   :340.0  \n\ncolSums(is.na(DATA))\n\nbecerro      TX     GAN \n      0       0       0",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#recuperando-nuestra-base-de-becerros",
+    "href": "Capitulo-02.html#recuperando-nuestra-base-de-becerros",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "",
+    "text": "3.1.1 Población, muestra y unidad de observación\nLa población es el conjunto de individuos u observaciones sobre el cual queremos obtener información. Una muestra es la parte de esa población que efectivamente estudiamos. La unidad de observación es el elemento sobre el cual registramos una medida (Webb, 2021).\nEn nuestro ejemplo, los 15 becerros constituyen el conjunto observado. Si nuestro objetivo fuera generalizar los resultados a una población más amplia de becerros, necesitaríamos definir sus características y considerar cómo fueron seleccionados los animales.\nLa unidad experimental es aquella que recibe un tratamiento asignado de manera independiente. Puede coincidir con el animal, pero si la alimentación se aplica a todo un corral, por ejemplo, podría ser el corral. Esta distinción es crucial al diseñar y analizar experimentos (Festing y Altman, 2002).",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#medidas-de-tendencia-central",
+    "href": "Capitulo-02.html#medidas-de-tendencia-central",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.2 Medidas de tendencia central",
+    "text": "3.2 Medidas de tendencia central\nLas medidas de tendencia central describen dónde se ubica el centro de un conjunto de observaciones. Las más utilizadas son la media, la mediana y la moda (Webb, 2021).\n\n3.2.1 Media aritmética\nLa media es la suma de los valores dividida entre el número de observaciones. En una muestra se expresa como:\n\\[\n\\bar{x}=\\frac{\\sum_{i=1}^{n}x_i}{n}\n\\]\n\n#### CALCULAMOS LA MEDIA ----------------\nmean(DATA$GAN)\n\n[1] 292.6667\n\n#### OTRA FORMA DE CALCULARLA ----------------\nsum(DATA$GAN) / length(DATA$GAN)\n\n[1] 292.6667\n\n\nLa ganancia diaria de peso promedio es 292.67 g/día. Esta cifra resume los 15 registros, pero no significa que todos los animales hayan presentado exactamente esa ganancia.\n\n\n3.2.2 Mediana\nLa mediana es el valor central de los datos ordenados de menor a mayor. Es menos sensible a valores extremos que la media y puede ser útil cuando la distribución es asimétrica (Webb, 2021).\n\n#### MEDIANA ----------------\nmedian(DATA$GAN)\n\n[1] 290\n\nsort(DATA$GAN)\n\n [1] 250 270 270 280 280 280 280 290 290 290 300 300 330 340 340\n\n\nLa mediana es 290 g/día.\n\n\n3.2.3 Moda\nLa moda es el valor que aparece con mayor frecuencia. Puede existir más de una moda si diferentes valores comparten la frecuencia máxima. Para identificarla no debemos utilizar mode() de R, ya que esa función describe el almacenamiento interno de un objeto.\n\n#### FRECUENCIA DE LAS OBSERVACIONES ----------------\ntable(DATA$GAN)\n\n\n250 270 280 290 300 330 340 \n  1   2   4   3   2   1   2 \n\n\n\n\n3.2.4 ¿Qué sucede cuando encontramos un valor extremo?\n\n#### MODIFICAMOS UNA OBSERVACIÓN ----------------\nDATA2 &lt;- DATA\nDATA2$GAN[15] &lt;- 500\n\nmean(DATA$GAN)\n\n[1] 292.6667\n\nmean(DATA2$GAN)\n\n[1] 303.3333\n\nmedian(DATA$GAN)\n\n[1] 290\n\nmedian(DATA2$GAN)\n\n[1] 290\n\n\nLa media aumenta de 292.67 a 303.33 g/día, mientras que la mediana permanece en 290 g/día. Esta diferencia ilustra por qué debemos conocer la distribución antes de elegir cómo resumirla.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#variabilidad-biológica",
+    "href": "Capitulo-02.html#variabilidad-biológica",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.3 Variabilidad biológica",
+    "text": "3.3 Variabilidad biológica\nLa variabilidad biológica se refiere a las diferencias entre individuos, incluso cuando comparten características y condiciones de manejo. En los sistemas de producción animal, esas diferencias pueden relacionarse con genética, fisiología, alimentación, ambiente, estado sanitario y otras fuentes de variación.\nLa variabilidad influye también en la capacidad de un experimento para detectar efectos. Una diferencia promedio entre tratamientos puede ser relativamente clara cuando la dispersión individual es pequeña, y más difícil de distinguir cuando las respuestas son heterogéneas. La interpretación de resultados requiere considerar tanto la magnitud del efecto como la variación y el diseño del estudio (Festing y Altman, 2002).\n\n3.3.1 Rango\nEl rango es la diferencia entre el máximo y el mínimo observado. Resume la amplitud total de los datos, aunque solo utiliza dos valores y por ello es sensible a observaciones extremas.\n\\[\nR=x_{\\max}-x_{\\min}\n\\]\n\n#### RANGO ----------------\nmin(DATA$GAN)\n\n[1] 250\n\nmax(DATA$GAN)\n\n[1] 340\n\nmax(DATA$GAN) - min(DATA$GAN)\n\n[1] 90\n\n\nLos valores van de 250 a 340 g/día: el rango es 90 g/día.\n\n\n3.3.2 Varianza\nLa varianza muestral cuantifica la dispersión alrededor de la media mediante la suma de las desviaciones elevadas al cuadrado, dividida entre los grados de libertad de la muestra (Webb, 2021).\n\\[\ns^2=\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}{n-1}\n\\]\n\n#### VARIANZA ----------------\nvar(DATA$GAN)\n\n[1] 678.0952\n\n#### DE DÓNDE SALE EL CÁLCULO ----------------\nMEDIA &lt;- mean(DATA$GAN)\nDESVIACIONES &lt;- DATA$GAN - MEDIA\nCUADRADOS &lt;- DESVIACIONES^2\nSC &lt;- sum(CUADRADOS)\nVARIANZA &lt;- SC / (length(DATA$GAN) - 1)\nVARIANZA\n\n[1] 678.0952\n\n\nLa varianza es aproximadamente 678.10 (g/día)². Las unidades al cuadrado hacen que no sea tan intuitiva como la desviación estándar, pero su cálculo resulta esencial para comprender ANOVA.\n\n\n3.3.3 Desviación estándar\nLa desviación estándar (DE) es la raíz cuadrada de la varianza. Expresa la dispersión de los valores en las mismas unidades que la variable original (Webb, 2021).\n\\[\ns=\\sqrt{\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}{n-1}}\n\\]\n\n#### DESVIACIÓN ESTÁNDAR ----------------\nsd(DATA$GAN)\n\n[1] 26.04026\n\nsqrt(var(DATA$GAN))\n\n[1] 26.04026\n\n\nLa DE es aproximadamente 26.04 g/día. No describe la precisión de la media: ese es otro concepto, denominado error estándar, que estudiaremos más adelante.\n\n\n3.3.4 Coeficiente de variación\nEl coeficiente de variación (CV) relaciona la desviación estándar con la media y expresa la dispersión relativa como porcentaje. Se utiliza con variables positivas en escala de razón, cuando la media está suficientemente alejada de cero (Webb, 2021).\n\\[\nCV=\\frac{s}{\\bar{x}}\\times100\n\\]\n\n#### COEFICIENTE DE VARIACIÓN ----------------\nCV &lt;- (sd(DATA$GAN) / mean(DATA$GAN)) * 100\nCV\n\n[1] 8.897584\n\n\nEl CV de los 15 animales es aproximadamente 8.90%.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#comparando-los-tratamientos",
+    "href": "Capitulo-02.html#comparando-los-tratamientos",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.4 Comparando los tratamientos",
+    "text": "3.4 Comparando los tratamientos\nAhora podemos calcular las medias y desviaciones estándar de los tres tratamientos. La descripción por grupos es importante: dos grupos pueden tener medias parecidas y dispersión muy distinta.\n\n#### MEDIA POR TRATAMIENTO ----------------\naggregate(GAN ~ TX, data = DATA, FUN = mean)\n\n  TX GAN\n1  1 280\n2  2 278\n3  3 320\n\n#### DESVIACIÓN ESTÁNDAR POR TRATAMIENTO ----------------\naggregate(GAN ~ TX, data = DATA, FUN = sd)\n\n  TX      GAN\n1  1 12.24745\n2  2 16.43168\n3  3 23.45208\n\n\n\n\n\nTratamiento\nMedia (g/día)\nDE (g/día)\nCV (%)\n\n\n\n\nTX1\n280.00\n12.25\n4.37\n\n\nTX2\n278.00\n16.43\n5.91\n\n\nTX3\n320.00\n23.45\n7.33\n\n\n\nEl tratamiento 3 presenta una media mayor y también mayor dispersión. Estas diferencias son descriptivas: para estudiar formalmente el efecto del tratamiento necesitaremos considerar la asignación experimental y el análisis inferencial.\n\n\n\nMedia de ganancia diaria de peso por tratamiento",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#distribución-de-frecuencias-e-histogramas",
+    "href": "Capitulo-02.html#distribución-de-frecuencias-e-histogramas",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.5 Distribución de frecuencias e histogramas",
+    "text": "3.5 Distribución de frecuencias e histogramas\nUna distribución de frecuencias muestra cuántas observaciones aparecen en cada valor o intervalo. Es una primera forma de identificar dónde se concentran los registros.\n\n#### FRECUENCIA DE GANANCIA DE PESO ----------------\ntable(DATA$GAN)\n\n\n250 270 280 290 300 330 340 \n  1   2   4   3   2   1   2 \n\n\nUn histograma representa gráficamente la distribución de una variable cuantitativa mediante intervalos consecutivos. La altura de las barras expresa la frecuencia o la densidad, según la escala utilizada. Permite examinar el centro, la dispersión, la asimetría y posibles valores alejados del conjunto (Webb, 2021).\n\n#### HISTOGRAMA ----------------\nhist(DATA$GAN)\n\n\n\n\n\n\n\n#### VAMOS A DARLE ALGO DE COLOR ----------------\nhist(\n  DATA$GAN,\n  col = \"aquamarine3\",\n  main = \"Ganancia diaria de peso\",\n  xlab = \"Ganancia diaria de peso (g/día)\",\n  ylab = \"Frecuencia\"\n)\n\n\n\n\n\n\n\n\n\n\n\nHistograma de las ganancias de peso originales\n\n\nTambién podemos agregar una curva de densidad. Para que las escalas sean compatibles, el histograma debe utilizar densidad en lugar de frecuencia absoluta.\n\n#### HISTOGRAMA CON CURVA DE DENSIDAD ----------------\nhist(\n  DATA$GAN,\n  probability = TRUE,\n  col = \"slategray4\",\n  xlab = \"GDP (g/día)\",\n  ylab = \"Densidad\"\n)\n\nlines(density(DATA$GAN), lwd = 2, col = \"blue\")\n\n\n\n\n\n\n\n\nCon solo 15 observaciones, la forma visual de la distribución depende mucho de los intervalos y del suavizado. Por eso debemos evitar conclusiones demasiado firmes sobre normalidad u otras características de la distribución.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#diagramas-de-caja-y-cuartiles",
+    "href": "Capitulo-02.html#diagramas-de-caja-y-cuartiles",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.6 Diagramas de caja y cuartiles",
+    "text": "3.6 Diagramas de caja y cuartiles\nLos cuartiles dividen los datos ordenados en cuatro partes. El primero (Q1) corresponde al percentil 25 y el tercero (Q3), al percentil 75. La diferencia RIC = Q3 − Q1 se denomina rango intercuartílico y contiene el 50% central de las observaciones.\nUn diagrama de caja o boxplot muestra la mediana, los cuartiles y los bigotes. En la representación habitual de R, los bigotes terminan en los valores más extremos situados dentro de 1.5 veces el RIC desde cada cuartil; los puntos fuera de esos límites se señalan por separado (Webb, 2021).\n\n#### GRÁFICO DE CAJA ----------------\nboxplot(DATA$GAN)\n\n\n\n\n\n\n\n#### POR TRATAMIENTO ----------------\nboxplot(\n  GAN ~ TX,\n  data = DATA,\n  col = rainbow(3),\n  xlab = \"Tratamiento\",\n  ylab = \"GDP (g/día)\"\n)\n\n\n\n\n\n\n\n\n\n\n\nDiagrama de caja con observaciones individuales originales\n\n\nPara mostrar también a cada animal podemos utilizar ggplot2, que permite superponer puntos individuales sobre las cajas.\n\n#### GRÁFICO CON GGPLOT2 ----------------\n# Instalar una sola vez:\ninstall.packages(\"ggplot2\")\n\nlibrary(ggplot2)\n\nggplot(DATA, aes(x = TX, y = GAN, fill = TX)) +\n  geom_boxplot(alpha = 0.4) +\n  geom_jitter(width = 0.08, size = 2.5) +\n  labs(\n    x = \"Tratamiento\",\n    y = \"Ganancia diaria de peso (g/día)\"\n  ) +\n  theme_classic()",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#valores-atípicos",
+    "href": "Capitulo-02.html#valores-atípicos",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.7 Valores atípicos",
+    "text": "3.7 Valores atípicos\nUn valor atípico es una observación considerablemente diferente del resto de los datos. Puede representar una respuesta biológica real, un problema de medición, un error de captura o una condición específica del experimento. No debe eliminarse automáticamente: primero necesitamos revisar su origen y su influencia sobre los resultados (Webb, 2021; Festing y Altman, 2002).\n\n#### VALORES ATÍPICOS ----------------\nboxplot.stats(DATA$GAN)$out\n\n[1] 340 340\n\n#### MODIFICAMOS UNA OBSERVACIÓN ----------------\nDATA2 &lt;- DATA\nDATA2$GAN[15] &lt;- 500\n\npar(mfrow = c(1, 2))\nboxplot(DATA$GAN, main = \"Datos originales\")\nboxplot(DATA2$GAN, main = \"Valor modificado\")\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))\n\n\n\n\n\n\n\nTipExperimentemos\n\n\n\n¿Cómo cambian la media, la mediana y la desviación estándar cuando sustituimos 340 por 500 g/día? ¿Qué información necesitaríamos antes de decidir si el registro es correcto?",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#otros-gráficos-para-examinar-grupos",
+    "href": "Capitulo-02.html#otros-gráficos-para-examinar-grupos",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.8 Otros gráficos para examinar grupos",
+    "text": "3.8 Otros gráficos para examinar grupos\nLos gráficos de ggpubr y yarrr pueden reunir observaciones y resúmenes descriptivos en una misma figura. Conviene saber qué representan los elementos del gráfico: por ejemplo, una desviación estándar no es lo mismo que un error estándar o un intervalo de confianza.\n\n#### MEDIAS Y DESVIACIÓN ESTÁNDAR ----------------\n# Instalar una sola vez:\ninstall.packages(\"ggpubr\")\n\nlibrary(ggpubr)\n\nggline(\n  DATA,\n  x = \"TX\",\n  y = \"GAN\",\n  add = c(\"mean_sd\", \"jitter\"),\n  xlab = \"Tratamiento\",\n  ylab = \"GDP (g/día)\"\n)\n\n#### PIRATE PLOT ----------------\n# Instalar una sola vez:\ninstall.packages(\"yarrr\")\n\nlibrary(yarrr)\n\npirateplot(\n  GAN ~ TX,\n  data = DATA,\n  theme = 2,\n  xlab = \"Tratamiento\",\n  ylab = \"GDP (g/día)\"\n)",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#práctica-complementaria-corredores",
+    "href": "Capitulo-02.html#práctica-complementaria-corredores",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.9 Práctica complementaria: corredores",
+    "text": "3.9 Práctica complementaria: corredores\nLos procedimientos descriptivos se pueden aplicar a distintas variables. Vamos a construir una segunda base con tiempos de 15 corredores distribuidos en tres métodos. Este ejemplo nos ayudará a comprobar que describir los datos no depende de la especie o del tipo de respuesta, sino de la variable y de nuestra pregunta de investigación.\n\n#### BASE DE CORREDORES ----------------\nCORREDOR &lt;- 1:15\nMET &lt;- factor(rep(c(\"Met1\", \"Met2\", \"Met3\"), each = 5))\n\nTiempo &lt;- c(\n  15, 16, 14, 15, 17,\n  14, 13, 15, 16, 14,\n  13, 12, 11, 14, 11\n)\n\nDATAm &lt;- data.frame(CORREDOR, MET, Tiempo)\nstr(DATAm)\n\n'data.frame':   15 obs. of  3 variables:\n $ CORREDOR: int  1 2 3 4 5 6 7 8 9 10 ...\n $ MET     : Factor w/ 3 levels \"Met1\",\"Met2\",..: 1 1 1 1 1 2 2 2 2 2 ...\n $ Tiempo  : num  15 16 14 15 17 14 13 15 16 14 ...\n\n#### EXPORTAR E IMPORTAR DATOS ----------------\nwrite.csv(DATAm, \"CORREDORES.csv\", row.names = FALSE)\n\nDATAm2 &lt;- read.csv(\"CORREDORES.csv\")\nDATAm2$MET &lt;- as.factor(DATAm2$MET)\n\n#### DESCRIPCIÓN ----------------\naggregate(Tiempo ~ MET, data = DATAm2, FUN = mean)\n\n   MET Tiempo\n1 Met1   15.4\n2 Met2   14.4\n3 Met3   12.2\n\naggregate(Tiempo ~ MET, data = DATAm2, FUN = sd)\n\n   MET   Tiempo\n1 Met1 1.140175\n2 Met2 1.140175\n3 Met3 1.303840\n\nboxplot(Tiempo ~ MET, data = DATAm2, col = rainbow(3))\n\n\n\n\n\n\n\n\n\n\n\nMétodo\nn\nTiempo promedio\nDesviación estándar\n\n\n\n\nMet1\n5\n15.4\n1.14\n\n\nMet2\n5\n14.4\n1.14\n\n\nMet3\n5\n12.2\n1.30\n\n\n\n\n\n\nDistribución de tiempos por método\n\n\nSi el recorrido fue equivalente para todos, el método 3 presenta descriptivamente el menor tiempo medio. Sin embargo, no podemos atribuir esa diferencia al entrenamiento sin conocer el diseño del experimento y aplicar procedimientos inferenciales adecuados.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#actividad-integradora",
+    "href": "Capitulo-02.html#actividad-integradora",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.10 Actividad integradora",
+    "text": "3.10 Actividad integradora\nUtilizando la base de 15 becerros, identifica la variable de respuesta y el factor de tratamiento. Calcula media, mediana, varianza, desviación estándar y CV del conjunto completo y de cada tratamiento. Construye un histograma y un diagrama de caja con observaciones individuales. Después redacta un párrafo que describa los resultados sin afirmar todavía que existe un efecto del tratamiento.\n\nSe analizaron los registros de ganancia diaria de peso de 15 becerros distribuidos en tres tratamientos. La media general fue de 292.67 g/día, con DE de 26.04 g/día y CV de 8.90%. Las medias de TX1, TX2 y TX3 fueron de 280, 278 y 320 g/día. El tercer tratamiento presentó la mayor media y la mayor dispersión. Estas diferencias describen los datos observados y deberán evaluarse posteriormente con un análisis que considere el diseño experimental.",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
+    "objectID": "Capitulo-02.html#lo-que-aprendimos",
+    "href": "Capitulo-02.html#lo-que-aprendimos",
+    "title": "3  Capítulo 2. ¿Qué nos dicen nuestros datos?",
+    "section": "3.11 Lo que aprendimos",
+    "text": "3.11 Lo que aprendimos\nLa media y la mediana permiten describir la posición central de los datos. La varianza, desviación estándar y CV ayudan a caracterizar su dispersión. Los histogramas, boxplots y gráficos con observaciones individuales permiten identificar patrones y posibles valores extremos. Estos procedimientos son indispensables antes de realizar un análisis inferencial.\nEn la siguiente sección estudiaremos distribuciones, muestreo, teorema central del límite, error estándar e intervalos de confianza.\n\n\n← Anterior\n\n\nSiguiente →\n\n\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
+    "crumbs": [
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Capítulo 2. ¿Qué nos dicen nuestros datos?</span>"
+    ]
+  },
+  {
     "objectID": "recursos.html",
     "href": "recursos.html",
     "title": "Recursos del curso",
     "section": "",
-    "text": "Nota\n\n\n\nEn esta primera versión se incluyen archivos para reproducir las prácticas en RStudio y los datos de los ejemplos.",
+    "text": "Scripts de R",
     "crumbs": [
-      "Inicio",
-      "Navegación",
-      "Scripts, datos y bibliografía"
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
     ]
   },
   {
     "objectID": "recursos.html#scripts-de-r",
     "href": "recursos.html#scripts-de-r",
     "title": "Recursos del curso",
-    "section": "Scripts de R",
-    "text": "Scripts de R\n\nCapítulo 1 — Introducción a R\nCapítulo 2 — Estadística descriptiva\nCLASE1.R original",
+    "section": "",
+    "text": "Capítulo 1 — Introducción a R\nCapítulo 2 — Estadística descriptiva\nCLASE1.R original",
     "crumbs": [
-      "Inicio",
-      "Navegación",
-      "Scripts, datos y bibliografía"
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
     ]
   },
   {
@@ -30,9 +290,8 @@
     "section": "Bases de datos",
     "text": "Bases de datos\n\nBECERROS.csv: 15 registros originales, con identificación, tratamiento y ganancia diaria de peso.\nCORREDORES_limpio.csv: base organizada sin índice de exportación.\nCORREDORES_original.csv: copia del archivo proporcionado.",
     "crumbs": [
-      "Inicio",
-      "Navegación",
-      "Scripts, datos y bibliografía"
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
     ]
   },
   {
@@ -42,9 +301,8 @@
     "section": "Cómo ejecutar los scripts",
     "text": "Cómo ejecutar los scripts\nInstala R y RStudio en tu equipo. Abre el script, ejecuta las instrucciones por bloques y observa los resultados en la consola y el panel de gráficos. Los paquetes adicionales se instalan una sola vez con install.packages(\"nombre\") y se cargan en cada sesión mediante library(nombre).\nLos gráficos del sitio se generaron a partir de los valores originales para facilitar su consulta. Para reproducirlos directamente en RStudio, utiliza los fragmentos de código incluidos en cada capítulo.\n\n\n\n\n\n\nTipEstructura recomendada del proyecto\n\n\n\nMantén las carpetas scripts/, datos/ y assets/ en la misma carpeta principal que los archivos .qmd. De esta forma, Quarto podrá localizar correctamente todos los recursos al renderizar el sitio.",
     "crumbs": [
-      "Inicio",
-      "Navegación",
-      "Scripts, datos y bibliografía"
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
     ]
   },
   {
@@ -54,297 +312,8 @@
     "section": "Bibliografía",
     "text": "Bibliografía\nWebb, R. L. (2021). Mostly Harmless Statistics (2.ª ed.). Portland State University. Especialmente capítulos 1–3.\nFesting, M. F. W., & Altman, D. G. (2002). Guidelines for the design and statistical analysis of experiments using laboratory animals. ILAR Journal, 43(4), 244–258. https://doi.org/10.1093/ilar.43.4.244\nMaterial complementario proporcionado: Statistical Concepts; Experimental Design; Statistical Analysis y Randomisation.\n\n\n← Capítulo 2\n\n\nVolver al inicio\n\n\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
     "crumbs": [
-      "Inicio",
-      "Navegación",
-      "Scripts, datos y bibliografía"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html",
-    "href": "Capitulo-02.html",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "",
-    "text": "Nota\n\n\n\nDuración sugerida: 8 horas. Estadística descriptiva, variabilidad biológica y visualización.\nEn el capítulo anterior organizamos las observaciones de 15 becerros distribuidos en tres tratamientos. Ahora queremos responder algunas preguntas: ¿cuál es su ganancia de peso promedio?, ¿todos los animales responden igual?, ¿qué tan variables son los resultados?, ¿qué información aporta un gráfico que no encontramos fácilmente en una tabla?\nLa estadística descriptiva reúne procedimientos para organizar, resumir y representar las observaciones mediante tablas, medidas numéricas y gráficos. Permite explorar el centro, la dispersión y la forma de los datos, pero por sí sola no demuestra que una diferencia entre grupos se deba al tratamiento (Webb, 2021).",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#recuperando-nuestra-base-de-becerros",
-    "href": "Capitulo-02.html#recuperando-nuestra-base-de-becerros",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "1 Recuperando nuestra base de becerros",
-    "text": "1 Recuperando nuestra base de becerros\n\n#### GENERAMOS NUESTRA BASE DE DATOS ----------------\nbecerro &lt;- 1:15\n\nTX &lt;- c(\n  1, 1, 1, 1, 1,\n  2, 2, 2, 2, 2,\n  3, 3, 3, 3, 3\n)\n\nGAN &lt;- c(\n  270, 300, 280, 280, 270,\n  290, 250, 280, 290, 280,\n  290, 340, 330, 300, 340\n)\n\nDATA &lt;- data.frame(becerro, TX = factor(TX), GAN)\n\n#### INSPECCIÓN DE DATOS ----------------\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\nhead(DATA)\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n6       6  2 290\n\nsummary(DATA)\n\n    becerro     TX         GAN       \n Min.   : 1.0   1:5   Min.   :250.0  \n 1st Qu.: 4.5   2:5   1st Qu.:280.0  \n Median : 8.0   3:5   Median :290.0  \n Mean   : 8.0         Mean   :292.7  \n 3rd Qu.:11.5         3rd Qu.:300.0  \n Max.   :15.0         Max.   :340.0  \n\ncolSums(is.na(DATA))\n\nbecerro      TX     GAN \n      0       0       0 \n\n\n\n1.1 Población, muestra y unidad de observación\nLa población es el conjunto de individuos u observaciones sobre el cual queremos obtener información. Una muestra es la parte de esa población que efectivamente estudiamos. La unidad de observación es el elemento sobre el cual registramos una medida (Webb, 2021).\nEn nuestro ejemplo, los 15 becerros constituyen el conjunto observado. Si nuestro objetivo fuera generalizar los resultados a una población más amplia de becerros, necesitaríamos definir sus características y considerar cómo fueron seleccionados los animales.\nLa unidad experimental es aquella que recibe un tratamiento asignado de manera independiente. Puede coincidir con el animal, pero si la alimentación se aplica a todo un corral, por ejemplo, podría ser el corral. Esta distinción es crucial al diseñar y analizar experimentos (Festing y Altman, 2002).",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#medidas-de-tendencia-central",
-    "href": "Capitulo-02.html#medidas-de-tendencia-central",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "2 Medidas de tendencia central",
-    "text": "2 Medidas de tendencia central\nLas medidas de tendencia central describen dónde se ubica el centro de un conjunto de observaciones. Las más utilizadas son la media, la mediana y la moda (Webb, 2021).\n\n2.1 Media aritmética\nLa media es la suma de los valores dividida entre el número de observaciones. En una muestra se expresa como:\n\\[\n\\bar{x}=\\frac{\\sum_{i=1}^{n}x_i}{n}\n\\]\n\n#### CALCULAMOS LA MEDIA ----------------\nmean(DATA$GAN)\n\n[1] 292.6667\n\n#### OTRA FORMA DE CALCULARLA ----------------\nsum(DATA$GAN) / length(DATA$GAN)\n\n[1] 292.6667\n\n\nLa ganancia diaria de peso promedio es 292.67 g/día. Esta cifra resume los 15 registros, pero no significa que todos los animales hayan presentado exactamente esa ganancia.\n\n\n2.2 Mediana\nLa mediana es el valor central de los datos ordenados de menor a mayor. Es menos sensible a valores extremos que la media y puede ser útil cuando la distribución es asimétrica (Webb, 2021).\n\n#### MEDIANA ----------------\nmedian(DATA$GAN)\n\n[1] 290\n\nsort(DATA$GAN)\n\n [1] 250 270 270 280 280 280 280 290 290 290 300 300 330 340 340\n\n\nLa mediana es 290 g/día.\n\n\n2.3 Moda\nLa moda es el valor que aparece con mayor frecuencia. Puede existir más de una moda si diferentes valores comparten la frecuencia máxima. Para identificarla no debemos utilizar mode() de R, ya que esa función describe el almacenamiento interno de un objeto.\n\n#### FRECUENCIA DE LAS OBSERVACIONES ----------------\ntable(DATA$GAN)\n\n\n250 270 280 290 300 330 340 \n  1   2   4   3   2   1   2 \n\n\n\n\n2.4 ¿Qué sucede cuando encontramos un valor extremo?\n\n#### MODIFICAMOS UNA OBSERVACIÓN ----------------\nDATA2 &lt;- DATA\nDATA2$GAN[15] &lt;- 500\n\nmean(DATA$GAN)\n\n[1] 292.6667\n\nmean(DATA2$GAN)\n\n[1] 303.3333\n\nmedian(DATA$GAN)\n\n[1] 290\n\nmedian(DATA2$GAN)\n\n[1] 290\n\n\nLa media aumenta de 292.67 a 303.33 g/día, mientras que la mediana permanece en 290 g/día. Esta diferencia ilustra por qué debemos conocer la distribución antes de elegir cómo resumirla.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#variabilidad-biológica",
-    "href": "Capitulo-02.html#variabilidad-biológica",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "3 Variabilidad biológica",
-    "text": "3 Variabilidad biológica\nLa variabilidad biológica se refiere a las diferencias entre individuos, incluso cuando comparten características y condiciones de manejo. En los sistemas de producción animal, esas diferencias pueden relacionarse con genética, fisiología, alimentación, ambiente, estado sanitario y otras fuentes de variación.\nLa variabilidad influye también en la capacidad de un experimento para detectar efectos. Una diferencia promedio entre tratamientos puede ser relativamente clara cuando la dispersión individual es pequeña, y más difícil de distinguir cuando las respuestas son heterogéneas. La interpretación de resultados requiere considerar tanto la magnitud del efecto como la variación y el diseño del estudio (Festing y Altman, 2002).\n\n3.1 Rango\nEl rango es la diferencia entre el máximo y el mínimo observado. Resume la amplitud total de los datos, aunque solo utiliza dos valores y por ello es sensible a observaciones extremas.\n\\[\nR=x_{\\max}-x_{\\min}\n\\]\n\n#### RANGO ----------------\nmin(DATA$GAN)\n\n[1] 250\n\nmax(DATA$GAN)\n\n[1] 340\n\nmax(DATA$GAN) - min(DATA$GAN)\n\n[1] 90\n\n\nLos valores van de 250 a 340 g/día: el rango es 90 g/día.\n\n\n3.2 Varianza\nLa varianza muestral cuantifica la dispersión alrededor de la media mediante la suma de las desviaciones elevadas al cuadrado, dividida entre los grados de libertad de la muestra (Webb, 2021).\n\\[\ns^2=\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}{n-1}\n\\]\n\n#### VARIANZA ----------------\nvar(DATA$GAN)\n\n[1] 678.0952\n\n#### DE DÓNDE SALE EL CÁLCULO ----------------\nMEDIA &lt;- mean(DATA$GAN)\nDESVIACIONES &lt;- DATA$GAN - MEDIA\nCUADRADOS &lt;- DESVIACIONES^2\nSC &lt;- sum(CUADRADOS)\nVARIANZA &lt;- SC / (length(DATA$GAN) - 1)\nVARIANZA\n\n[1] 678.0952\n\n\nLa varianza es aproximadamente 678.10 (g/día)². Las unidades al cuadrado hacen que no sea tan intuitiva como la desviación estándar, pero su cálculo resulta esencial para comprender ANOVA.\n\n\n3.3 Desviación estándar\nLa desviación estándar (DE) es la raíz cuadrada de la varianza. Expresa la dispersión de los valores en las mismas unidades que la variable original (Webb, 2021).\n\\[\ns=\\sqrt{\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}{n-1}}\n\\]\n\n#### DESVIACIÓN ESTÁNDAR ----------------\nsd(DATA$GAN)\n\n[1] 26.04026\n\nsqrt(var(DATA$GAN))\n\n[1] 26.04026\n\n\nLa DE es aproximadamente 26.04 g/día. No describe la precisión de la media: ese es otro concepto, denominado error estándar, que estudiaremos más adelante.\n\n\n3.4 Coeficiente de variación\nEl coeficiente de variación (CV) relaciona la desviación estándar con la media y expresa la dispersión relativa como porcentaje. Se utiliza con variables positivas en escala de razón, cuando la media está suficientemente alejada de cero (Webb, 2021).\n\\[\nCV=\\frac{s}{\\bar{x}}\\times100\n\\]\n\n#### COEFICIENTE DE VARIACIÓN ----------------\nCV &lt;- (sd(DATA$GAN) / mean(DATA$GAN)) * 100\nCV\n\n[1] 8.897584\n\n\nEl CV de los 15 animales es aproximadamente 8.90%.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#comparando-los-tratamientos",
-    "href": "Capitulo-02.html#comparando-los-tratamientos",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "4 Comparando los tratamientos",
-    "text": "4 Comparando los tratamientos\nAhora podemos calcular las medias y desviaciones estándar de los tres tratamientos. La descripción por grupos es importante: dos grupos pueden tener medias parecidas y dispersión muy distinta.\n\n#### MEDIA POR TRATAMIENTO ----------------\naggregate(GAN ~ TX, data = DATA, FUN = mean)\n\n  TX GAN\n1  1 280\n2  2 278\n3  3 320\n\n#### DESVIACIÓN ESTÁNDAR POR TRATAMIENTO ----------------\naggregate(GAN ~ TX, data = DATA, FUN = sd)\n\n  TX      GAN\n1  1 12.24745\n2  2 16.43168\n3  3 23.45208\n\n\n\n\n\nTratamiento\nMedia (g/día)\nDE (g/día)\nCV (%)\n\n\n\n\nTX1\n280.00\n12.25\n4.37\n\n\nTX2\n278.00\n16.43\n5.91\n\n\nTX3\n320.00\n23.45\n7.33\n\n\n\nEl tratamiento 3 presenta una media mayor y también mayor dispersión. Estas diferencias son descriptivas: para estudiar formalmente el efecto del tratamiento necesitaremos considerar la asignación experimental y el análisis inferencial.\n\n\n\nMedia de ganancia diaria de peso por tratamiento",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#distribución-de-frecuencias-e-histogramas",
-    "href": "Capitulo-02.html#distribución-de-frecuencias-e-histogramas",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "5 Distribución de frecuencias e histogramas",
-    "text": "5 Distribución de frecuencias e histogramas\nUna distribución de frecuencias muestra cuántas observaciones aparecen en cada valor o intervalo. Es una primera forma de identificar dónde se concentran los registros.\n\n#### FRECUENCIA DE GANANCIA DE PESO ----------------\ntable(DATA$GAN)\n\n\n250 270 280 290 300 330 340 \n  1   2   4   3   2   1   2 \n\n\nUn histograma representa gráficamente la distribución de una variable cuantitativa mediante intervalos consecutivos. La altura de las barras expresa la frecuencia o la densidad, según la escala utilizada. Permite examinar el centro, la dispersión, la asimetría y posibles valores alejados del conjunto (Webb, 2021).\n\n#### HISTOGRAMA ----------------\nhist(DATA$GAN)\n\n\n\n\n\n\n\n#### VAMOS A DARLE ALGO DE COLOR ----------------\nhist(\n  DATA$GAN,\n  col = \"aquamarine3\",\n  main = \"Ganancia diaria de peso\",\n  xlab = \"Ganancia diaria de peso (g/día)\",\n  ylab = \"Frecuencia\"\n)\n\n\n\n\n\n\n\n\n\n\n\nHistograma de las ganancias de peso originales\n\n\nTambién podemos agregar una curva de densidad. Para que las escalas sean compatibles, el histograma debe utilizar densidad en lugar de frecuencia absoluta.\n\n#### HISTOGRAMA CON CURVA DE DENSIDAD ----------------\nhist(\n  DATA$GAN,\n  probability = TRUE,\n  col = \"slategray4\",\n  xlab = \"GDP (g/día)\",\n  ylab = \"Densidad\"\n)\n\nlines(density(DATA$GAN), lwd = 2, col = \"blue\")\n\n\n\n\n\n\n\n\nCon solo 15 observaciones, la forma visual de la distribución depende mucho de los intervalos y del suavizado. Por eso debemos evitar conclusiones demasiado firmes sobre normalidad u otras características de la distribución.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#diagramas-de-caja-y-cuartiles",
-    "href": "Capitulo-02.html#diagramas-de-caja-y-cuartiles",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "6 Diagramas de caja y cuartiles",
-    "text": "6 Diagramas de caja y cuartiles\nLos cuartiles dividen los datos ordenados en cuatro partes. El primero (Q1) corresponde al percentil 25 y el tercero (Q3), al percentil 75. La diferencia RIC = Q3 − Q1 se denomina rango intercuartílico y contiene el 50% central de las observaciones.\nUn diagrama de caja o boxplot muestra la mediana, los cuartiles y los bigotes. En la representación habitual de R, los bigotes terminan en los valores más extremos situados dentro de 1.5 veces el RIC desde cada cuartil; los puntos fuera de esos límites se señalan por separado (Webb, 2021).\n\n#### GRÁFICO DE CAJA ----------------\nboxplot(DATA$GAN)\n\n\n\n\n\n\n\n#### POR TRATAMIENTO ----------------\nboxplot(\n  GAN ~ TX,\n  data = DATA,\n  col = rainbow(3),\n  xlab = \"Tratamiento\",\n  ylab = \"GDP (g/día)\"\n)\n\n\n\n\n\n\n\n\n\n\n\nDiagrama de caja con observaciones individuales originales\n\n\nPara mostrar también a cada animal podemos utilizar ggplot2, que permite superponer puntos individuales sobre las cajas.\n\n#### GRÁFICO CON GGPLOT2 ----------------\n# Instalar una sola vez:\ninstall.packages(\"ggplot2\")\n\nlibrary(ggplot2)\n\nggplot(DATA, aes(x = TX, y = GAN, fill = TX)) +\n  geom_boxplot(alpha = 0.4) +\n  geom_jitter(width = 0.08, size = 2.5) +\n  labs(\n    x = \"Tratamiento\",\n    y = \"Ganancia diaria de peso (g/día)\"\n  ) +\n  theme_classic()",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#valores-atípicos",
-    "href": "Capitulo-02.html#valores-atípicos",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "7 Valores atípicos",
-    "text": "7 Valores atípicos\nUn valor atípico es una observación considerablemente diferente del resto de los datos. Puede representar una respuesta biológica real, un problema de medición, un error de captura o una condición específica del experimento. No debe eliminarse automáticamente: primero necesitamos revisar su origen y su influencia sobre los resultados (Webb, 2021; Festing y Altman, 2002).\n\n#### VALORES ATÍPICOS ----------------\nboxplot.stats(DATA$GAN)$out\n\n[1] 340 340\n\n#### MODIFICAMOS UNA OBSERVACIÓN ----------------\nDATA2 &lt;- DATA\nDATA2$GAN[15] &lt;- 500\n\npar(mfrow = c(1, 2))\nboxplot(DATA$GAN, main = \"Datos originales\")\nboxplot(DATA2$GAN, main = \"Valor modificado\")\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))\n\n\n\n\n\n\n\nTipExperimentemos\n\n\n\n¿Cómo cambian la media, la mediana y la desviación estándar cuando sustituimos 340 por 500 g/día? ¿Qué información necesitaríamos antes de decidir si el registro es correcto?",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#otros-gráficos-para-examinar-grupos",
-    "href": "Capitulo-02.html#otros-gráficos-para-examinar-grupos",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "8 Otros gráficos para examinar grupos",
-    "text": "8 Otros gráficos para examinar grupos\nLos gráficos de ggpubr y yarrr pueden reunir observaciones y resúmenes descriptivos en una misma figura. Conviene saber qué representan los elementos del gráfico: por ejemplo, una desviación estándar no es lo mismo que un error estándar o un intervalo de confianza.\n\n#### MEDIAS Y DESVIACIÓN ESTÁNDAR ----------------\n# Instalar una sola vez:\ninstall.packages(\"ggpubr\")\n\nlibrary(ggpubr)\n\nggline(\n  DATA,\n  x = \"TX\",\n  y = \"GAN\",\n  add = c(\"mean_sd\", \"jitter\"),\n  xlab = \"Tratamiento\",\n  ylab = \"GDP (g/día)\"\n)\n\n#### PIRATE PLOT ----------------\n# Instalar una sola vez:\ninstall.packages(\"yarrr\")\n\nlibrary(yarrr)\n\npirateplot(\n  GAN ~ TX,\n  data = DATA,\n  theme = 2,\n  xlab = \"Tratamiento\",\n  ylab = \"GDP (g/día)\"\n)",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#práctica-complementaria-corredores",
-    "href": "Capitulo-02.html#práctica-complementaria-corredores",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "9 Práctica complementaria: corredores",
-    "text": "9 Práctica complementaria: corredores\nLos procedimientos descriptivos se pueden aplicar a distintas variables. Vamos a construir una segunda base con tiempos de 15 corredores distribuidos en tres métodos. Este ejemplo nos ayudará a comprobar que describir los datos no depende de la especie o del tipo de respuesta, sino de la variable y de nuestra pregunta de investigación.\n\n#### BASE DE CORREDORES ----------------\nCORREDOR &lt;- 1:15\nMET &lt;- factor(rep(c(\"Met1\", \"Met2\", \"Met3\"), each = 5))\n\nTiempo &lt;- c(\n  15, 16, 14, 15, 17,\n  14, 13, 15, 16, 14,\n  13, 12, 11, 14, 11\n)\n\nDATAm &lt;- data.frame(CORREDOR, MET, Tiempo)\nstr(DATAm)\n\n'data.frame':   15 obs. of  3 variables:\n $ CORREDOR: int  1 2 3 4 5 6 7 8 9 10 ...\n $ MET     : Factor w/ 3 levels \"Met1\",\"Met2\",..: 1 1 1 1 1 2 2 2 2 2 ...\n $ Tiempo  : num  15 16 14 15 17 14 13 15 16 14 ...\n\n#### EXPORTAR E IMPORTAR DATOS ----------------\nwrite.csv(DATAm, \"CORREDORES.csv\", row.names = FALSE)\n\nDATAm2 &lt;- read.csv(\"CORREDORES.csv\")\nDATAm2$MET &lt;- as.factor(DATAm2$MET)\n\n#### DESCRIPCIÓN ----------------\naggregate(Tiempo ~ MET, data = DATAm2, FUN = mean)\n\n   MET Tiempo\n1 Met1   15.4\n2 Met2   14.4\n3 Met3   12.2\n\naggregate(Tiempo ~ MET, data = DATAm2, FUN = sd)\n\n   MET   Tiempo\n1 Met1 1.140175\n2 Met2 1.140175\n3 Met3 1.303840\n\nboxplot(Tiempo ~ MET, data = DATAm2, col = rainbow(3))\n\n\n\n\n\n\n\n\n\n\n\nMétodo\nn\nTiempo promedio\nDesviación estándar\n\n\n\n\nMet1\n5\n15.4\n1.14\n\n\nMet2\n5\n14.4\n1.14\n\n\nMet3\n5\n12.2\n1.30\n\n\n\n\n\n\nDistribución de tiempos por método\n\n\nSi el recorrido fue equivalente para todos, el método 3 presenta descriptivamente el menor tiempo medio. Sin embargo, no podemos atribuir esa diferencia al entrenamiento sin conocer el diseño del experimento y aplicar procedimientos inferenciales adecuados.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#actividad-integradora",
-    "href": "Capitulo-02.html#actividad-integradora",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "10 Actividad integradora",
-    "text": "10 Actividad integradora\nUtilizando la base de 15 becerros, identifica la variable de respuesta y el factor de tratamiento. Calcula media, mediana, varianza, desviación estándar y CV del conjunto completo y de cada tratamiento. Construye un histograma y un diagrama de caja con observaciones individuales. Después redacta un párrafo que describa los resultados sin afirmar todavía que existe un efecto del tratamiento.\n\nSe analizaron los registros de ganancia diaria de peso de 15 becerros distribuidos en tres tratamientos. La media general fue de 292.67 g/día, con DE de 26.04 g/día y CV de 8.90%. Las medias de TX1, TX2 y TX3 fueron de 280, 278 y 320 g/día. El tercer tratamiento presentó la mayor media y la mayor dispersión. Estas diferencias describen los datos observados y deberán evaluarse posteriormente con un análisis que considere el diseño experimental.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-02.html#lo-que-aprendimos",
-    "href": "Capitulo-02.html#lo-que-aprendimos",
-    "title": "Capítulo 2. ¿Qué nos dicen nuestros datos?",
-    "section": "11 Lo que aprendimos",
-    "text": "11 Lo que aprendimos\nLa media y la mediana permiten describir la posición central de los datos. La varianza, desviación estándar y CV ayudan a caracterizar su dispersión. Los histogramas, boxplots y gráficos con observaciones individuales permiten identificar patrones y posibles valores extremos. Estos procedimientos son indispensables antes de realizar un análisis inferencial.\nEn la siguiente sección estudiaremos distribuciones, muestreo, teorema central del límite, error estándar e intervalos de confianza.\n\n\n← Anterior\n\n\nSiguiente →\n\n\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "02 · ¿Qué nos dicen los datos?"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html",
-    "href": "Capitulo-01.html",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "",
-    "text": "Nota\n\n\n\nDuración sugerida: 6 horas. Introducción a R, estructuras de datos y bases de datos.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#por-qué-aprender-r-para-estudiar-ciencia-animal",
-    "href": "Capitulo-01.html#por-qué-aprender-r-para-estudiar-ciencia-animal",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "1 ¿Por qué aprender R para estudiar Ciencia Animal?",
-    "text": "1 ¿Por qué aprender R para estudiar Ciencia Animal?\nEn Ciencia Animal trabajamos continuamente con datos. Registramos el peso de los animales, su consumo de alimento, la ganancia diaria de peso, la producción de leche y diferentes indicadores relacionados con la salud y el desempeño productivo. Sin embargo, una base de datos no explica por sí misma el fenómeno que estudiamos: necesitamos comprender qué contiene, cómo se obtuvo y qué preguntas podemos responder con ella.\nR es un lenguaje y entorno de análisis que permite organizar información, realizar cálculos, generar gráficos y aplicar procedimientos estadísticos. Una ventaja importante es que podemos guardar las instrucciones utilizadas y ejecutarlas nuevamente. La reproducibilidad comienza con decisiones sencillas: conservar el código, identificar las variables y registrar adecuadamente los datos.\nEn esta práctica utilizaremos R como una herramienta para comprender los datos, no como un fin en sí mismo. Comenzaremos con operaciones simples y construiremos progresivamente un conjunto de datos de 15 becerros (Webb, 2021).\nAl terminar este capítulo podrás: crear objetos y vectores; distinguir matrices y bases de datos; reconocer variables categóricas y numéricas; seleccionar registros; y comprobar que los datos fueron importados o creados correctamente.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#conociendo-r-rstudio-y-los-paquetes",
-    "href": "Capitulo-01.html#conociendo-r-rstudio-y-los-paquetes",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "2 Conociendo R, RStudio y los paquetes",
-    "text": "2 Conociendo R, RStudio y los paquetes\nR ejecuta los cálculos y procedimientos. RStudio es un entorno que facilita escribir scripts, examinar objetos y visualizar resultados. Un script es un archivo de texto con instrucciones de R; guardarlo permite repetir un análisis sin reconstruir todas las operaciones manualmente.\nLos paquetes reúnen funciones adicionales. Se instalan una sola vez por equipo y se cargan en cada sesión donde se necesiten. Empezaremos con psych y más adelante utilizaremos ggplot2, ggpubr y yarrr.\n\n#### PAQUETES A DESCARGAR ----------------\n\n# Ejecutar esta instrucción una vez:\ninstall.packages(\"psych\")\n\n#### CARGAMOS EL PAQUETE ----------------\nlibrary(psych)\n\nEn RStudio, el editor de scripts contiene las instrucciones; la consola muestra su ejecución; el panel Environment permite observar los objetos; y el panel de gráficos muestra las figuras producidas.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#nuestros-primeros-objetos",
-    "href": "Capitulo-01.html#nuestros-primeros-objetos",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "3 Nuestros primeros objetos",
-    "text": "3 Nuestros primeros objetos\nUn objeto almacena un valor o una estructura de información para utilizarla posteriormente. El símbolo &lt;- asigna un valor al nombre elegido. Cuando escribimos el nombre del objeto, R muestra su contenido; con str() observamos su estructura.\n\n#### GENERANDO OBJETOS ----------------\nX &lt;- 10\nX\n\n[1] 10\n\nstr(X)\n\n num 10\n\n#### OPERACIONES MATEMÁTICAS ----------------\nY &lt;- 6 + 5\nY\n\n[1] 11\n\nstr(Y)\n\n num 11\n\n\nPodemos utilizar exactamente el mismo procedimiento para describir un problema sencillo de producción animal.\n\n#### PESO DE UN BECERRO ----------------\nPESO &lt;- 250\nGANANCIA &lt;- 30\nPESO.FINAL &lt;- PESO + GANANCIA\nPESO.FINAL\n\n[1] 280\n\n\nEn este ejemplo el peso final sería de 280 kg. La importancia del ejercicio es reconocer que R conserva los valores y permite combinarlos en nuevas operaciones.\n\n\n\n\n\n\nTipExperimentemos\n\n\n\nCambia el peso inicial a 275 kg y la ganancia a 42 kg. ¿Qué resultado obtienes? ¿Qué sucede si ejecutas solamente la última línea sin haber creado antes los objetos?",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#secuencias-y-vectores",
-    "href": "Capitulo-01.html#secuencias-y-vectores",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "4 Secuencias y vectores",
-    "text": "4 Secuencias y vectores\nUna secuencia es una sucesión de valores ordenados. Con el operador : podemos generar números enteros consecutivos. Esto será útil para crear identificadores de animales y numerar observaciones.\n\n#### SECUENCIAS ----------------\nSECUENCIA &lt;- 10:300\nSECUENCIA\n\n  [1]  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27\n [19]  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45\n [37]  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63\n [55]  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81\n [73]  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99\n [91] 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117\n[109] 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135\n[127] 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153\n[145] 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171\n[163] 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189\n[181] 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207\n[199] 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225\n[217] 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243\n[235] 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261\n[253] 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279\n[271] 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297\n[289] 298 299 300\n\nstr(SECUENCIA)\n\n int [1:291] 10 11 12 13 14 15 16 17 18 19 ...\n\nbecerro &lt;- 1:15\nbecerro\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15\n\nlength(becerro)\n\n[1] 15\n\n\nUn vector es una estructura de R que contiene varios elementos del mismo tipo. La función c() permite combinar valores y los corchetes permiten seleccionar sus posiciones. En R la primera posición se identifica con el número 1.\n\n#### VECTORES ----------------\nVECTOR &lt;- c(\"A\", \"B\", \"C\", \"D\")\nVECTOR\n\n[1] \"A\" \"B\" \"C\" \"D\"\n\nstr(VECTOR)\n\n chr [1:4] \"A\" \"B\" \"C\" \"D\"\n\n#### EXTRAER ELEMENTOS ----------------\nVECTOR[1]\n\n[1] \"A\"\n\nVECTOR[2]\n\n[1] \"B\"\n\nVECTOR[1:3]\n\n[1] \"A\" \"B\" \"C\"\n\n\n\n\n\n\n\n\nTipEjercicio\n\n\n\nCrea un vector con pesos de cinco ovejas: 45, 48, 52, 47 y 50 kg. Recupera la tercera observación y calcula el promedio con mean().",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#matrices",
-    "href": "Capitulo-01.html#matrices",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "5 Matrices",
-    "text": "5 Matrices\nUna matriz organiza elementos del mismo tipo en filas y columnas. Para seleccionar uno de sus elementos indicamos primero la fila y después la columna, separadas por una coma.\n\n#### MATRICES ----------------\nMATRIZ &lt;- matrix(5, nrow = 5, ncol = 5)\nMATRIZ\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    5    5    5    5    5\n[2,]    5    5    5    5    5\n[3,]    5    5    5    5    5\n[4,]    5    5    5    5    5\n[5,]    5    5    5    5    5\n\nMATRIZ2 &lt;- matrix(\n  c(\n    0, 1, 1,\n    1, 0, 1,\n    1, 1, 0\n  ),\n  nrow = 3,\n  ncol = 3\n)\n\nMATRIZ2\n\n     [,1] [,2] [,3]\n[1,]    0    1    1\n[2,]    1    0    1\n[3,]    1    1    0\n\n#### PRIMERO FILA Y DESPUÉS COLUMNA ----------------\nUNO &lt;- MATRIZ2[3, 2]\nUNO\n\n[1] 1\n\n\nLas matrices resultan útiles para diversos cálculos, pero en experimentación animal normalmente necesitamos reunir columnas con diferentes tipos de información. Para ello trabajaremos con data.frame.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#funciones-y-ayuda",
-    "href": "Capitulo-01.html#funciones-y-ayuda",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "6 Funciones y ayuda",
-    "text": "6 Funciones y ayuda\nUna función realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.\n\n#### FUNCIONES ----------------\nstr(Y)\n\n num 11\n\nmode(Y)\n\n[1] \"numeric\"\n\nls()\n\n [1] \"becerro\"    \"GANANCIA\"   \"MATRIZ\"     \"MATRIZ2\"    \"PESO\"      \n [6] \"PESO.FINAL\" \"SECUENCIA\"  \"UNO\"        \"VECTOR\"     \"X\"         \n[11] \"Y\"         \n\n#### ¿NECESITAS AYUDA? ----------------\n?mean\n?str\n?hist\n\nEn R, mode() informa sobre el modo de almacenamiento del objeto: no debe confundirse con la moda estadística, que veremos en el capítulo siguiente. La función ls() muestra los objetos disponibles en el entorno.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#variables-y-bases-de-datos",
-    "href": "Capitulo-01.html#variables-y-bases-de-datos",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "7 Variables y bases de datos",
-    "text": "7 Variables y bases de datos\nUna variable es una característica que registramos y que puede asumir valores diferentes entre individuos u observaciones. Las variables cuantitativas representan cantidades medibles o contables, como peso o producción de leche; las categóricas identifican grupos o cualidades, como tratamiento, raza o sexo (Webb, 2021).\nEn una base de datos, por lo general cada fila corresponde a una observación y cada columna a una variable. Un identificador de animal puede expresarse mediante números sin que ello lo convierta en una medida biológica continua.\n\n7.1 Construyamos nuestra base de 15 becerros\n\n#### GENERAMOS UNA BASE DE DATOS ----------------\nbecerro &lt;- 1:15\n\nTX &lt;- c(\n  1, 1, 1, 1, 1,\n  2, 2, 2, 2, 2,\n  3, 3, 3, 3, 3\n)\n\nGAN &lt;- c(\n  270, 300, 280, 280, 270,\n  290, 250, 280, 290, 280,\n  290, 340, 330, 300, 340\n)\n\n#### UNIMOS COLUMNAS ----------------\nDATA &lt;- cbind(becerro, TX, GAN)\nDATA\n\n      becerro TX GAN\n [1,]       1  1 270\n [2,]       2  1 300\n [3,]       3  1 280\n [4,]       4  1 280\n [5,]       5  1 270\n [6,]       6  2 290\n [7,]       7  2 250\n [8,]       8  2 280\n [9,]       9  2 290\n[10,]      10  2 280\n[11,]      11  3 290\n[12,]      12  3 340\n[13,]      13  3 330\n[14,]      14  3 300\n[15,]      15  3 340\n\nDATA[8, ]\n\nbecerro      TX     GAN \n      8       2     280 \n\n#### CONVERTIMOS A DATA FRAME ----------------\nDATA &lt;- as.data.frame(DATA)\nDATA$TX &lt;- as.factor(DATA$TX)\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: num  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\n\nLa columna becerro identifica cada animal; TX indica el grupo de tratamiento; y GAN contiene la ganancia diaria de peso en g/día. La función as.factor() permite indicar que TX representa categorías, no una cantidad continua.\nUna vez comprendido el procedimiento anterior, podemos crear la misma estructura directamente:\n\n#### OTRA FORMA DE CREAR LA BASE ----------------\nDATA &lt;- data.frame(\n  becerro = 1:15,\n  TX = factor(c(\n    1, 1, 1, 1, 1,\n    2, 2, 2, 2, 2,\n    3, 3, 3, 3, 3\n  )),\n  GAN = c(\n    270, 300, 280, 280, 270,\n    290, 250, 280, 290, 280,\n    290, 340, 330, 300, 340\n  )\n)\n\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#revisando-los-datos-antes-del-análisis",
-    "href": "Capitulo-01.html#revisando-los-datos-antes-del-análisis",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "8 Revisando los datos antes del análisis",
-    "text": "8 Revisando los datos antes del análisis\nAntes de aplicar cualquier procedimiento, debemos comprobar que los registros contienen los valores esperados y que las variables tienen el tipo correcto. Un error en la organización de datos puede cambiar el significado del análisis.\n\n#### INSPECCIÓN DE LA BASE ----------------\nhead(DATA)\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n6       6  2 290\n\nsummary(DATA)\n\n    becerro     TX         GAN       \n Min.   : 1.0   1:5   Min.   :250.0  \n 1st Qu.: 4.5   2:5   1st Qu.:280.0  \n Median : 8.0   3:5   Median :290.0  \n Mean   : 8.0         Mean   :292.7  \n 3rd Qu.:11.5         3rd Qu.:300.0  \n Max.   :15.0         Max.   :340.0  \n\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\nnrow(DATA)\n\n[1] 15\n\nncol(DATA)\n\n[1] 3\n\n#### EXTRAER OBSERVACIONES ----------------\nDATA[8, ]\n\n  becerro TX GAN\n8       8  2 280\n\nDATA[DATA$TX == 1, ]\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n\nDATA[DATA$becerro == 10, ]\n\n   becerro TX GAN\n10      10  2 280\n\n#### DATOS FALTANTES ----------------\ncolSums(is.na(DATA))\n\nbecerro      TX     GAN \n      0       0       0 \n\n\nEn los ejercicios siguientes retomaremos estos mismos registros para estudiar la media, la desviación estándar y la representación gráfica de la variabilidad.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#actividad-del-capítulo",
-    "href": "Capitulo-01.html#actividad-del-capítulo",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "9 Actividad del capítulo",
-    "text": "9 Actividad del capítulo\n\nIdentifica cuántos becerros y tratamientos contiene la base.\nExplica qué representa cada columna y cuál es la variable de respuesta.\nDescribe por qué TX debe almacenarse como factor.\nRecupera solamente las observaciones del tratamiento 2.\nComprueba si existen datos faltantes.\nExporta tus instrucciones a un archivo .R y consérvalo para el capítulo siguiente.",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "Capitulo-01.html#lo-que-aprendimos",
-    "href": "Capitulo-01.html#lo-que-aprendimos",
-    "title": "Capítulo 1. Nuestros primeros pasos en R",
-    "section": "10 Lo que aprendimos",
-    "text": "10 Lo que aprendimos\nHemos construido objetos, vectores, matrices y una base de datos. También reconocimos variables cuantitativas y categóricas, y comprobamos la estructura de los registros. En el próximo capítulo describiremos sus valores y estudiaremos por qué los animales no responden exactamente de la misma manera.\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "01 · Primeros pasos en R"
-    ]
-  },
-  {
-    "objectID": "index.html#primer-encuentro-con-los-datos",
-    "href": "index.html#primer-encuentro-con-los-datos",
-    "title": "Ciencia Animal a través de los Datos",
-    "section": "Primer encuentro con los datos",
-    "text": "Primer encuentro con los datos\nEn esta primera sección aprenderemos a construir bases de datos, reconocer variables y describir su variabilidad. Utilizaremos ejemplos de becerros y corredores, con prácticas guiadas en R, gráficos y actividades de interpretación. El contenido se organiza en dos capítulos que suman 14 horas de trabajo.\n\n\n\n\n\n\n\n\nNotaCAPÍTULO 1 · 6 HORAS\n\n\n\nNuestros primeros pasos en R\nObjetos, vectores, matrices, funciones, variables y construcción de una base con 15 becerros.\nLeer capítulo →\n\n\n\n\n\n\n\n\n\n\nNotaCAPÍTULO 2 · 8 HORAS\n\n\n\n¿Qué nos dicen nuestros datos?\nMedia, mediana, variabilidad, gráficos, valores atípicos y descripción de tratamientos.\nLeer capítulo →\n\n\n\n\n\n\n\n\n\n\nTipCómo utilizar el material\n\n\n\nLee las definiciones, copia cada bloque de R, ejecútalo en RStudio y compara tus resultados con los ejemplos. Los scripts y bases de datos están disponibles en la sección de recursos.\n\n\nComenzar la Sección I\n\n\nDr. Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM · Sección I",
-    "crumbs": [
-      "Inicio",
-      "Navegación",
-      "Inicio"
+      "Sección I · Primer encuentro con los datos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
     ]
   }
 ]

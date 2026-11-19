@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Juan Carlos Ángeles Hernández">
+<meta name="description" content="Material didáctico de exploración, análisis y razonamiento estadístico con R aplicado a Ciencia Animal">
 
-<title>Capítulo 2. ¿Qué nos dicen nuestros datos? – Ciencia Animal a través de los Datos</title>
+<title>3&nbsp; Capítulo 2. ¿Qué nos dicen nuestros datos? – Ciencia Animal a través de los Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,6 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./recursos.html" rel="next">
+<link href="./Capitulo-01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -81,13 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-805e789c7b7f260b48d5cafdd348845c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5630e6732664d48c7cde3b526013eeb9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -144,51 +147,16 @@ window.Quarto = {
 <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Ciencia Animal a través de los Datos</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Inicio</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Capitulo-01.html"> 
-<span class="menu-text">01 · Primeros pasos en R</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Capitulo-02.html"> 
-<span class="menu-text">02 · ¿Qué nos dicen los datos?</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./recursos.html"> 
-<span class="menu-text">Scripts, datos y bibliografía</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Navegación</a></li><li class="breadcrumb-item"><a href="./Capitulo-02.html">02 · ¿Qué nos dicen los datos?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Capitulo-01.html">Sección I · Primer encuentro con los datos</a></li><li class="breadcrumb-item"><a href="./Capitulo-02.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Capítulo 2. ¿Qué nos dicen nuestros datos?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -198,9 +166,18 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Ciencia Animal a través de los Datos</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Ciencia-Animal-a-través-de-los-Datos.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Buscar"></div>
@@ -208,10 +185,16 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Ciencia Animal a través de los Datos</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Navegación</span></a>
+ <span class="menu-text">Sección I · Primer encuentro con los datos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -219,51 +202,22 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inicio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Capitulo-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01 · Primeros pasos en R</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 1. Nuestros primeros pasos en R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Capitulo-02.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">02 · ¿Qué nos dicen los datos?</span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Capítulo 2. ¿Qué nos dicen nuestros datos?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./recursos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scripts, datos y bibliografía</span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Recursos del curso</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Siguientes etapas</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
- <span class="menu-text">Sección II · Variabilidad e incertidumbre</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Sección III · Decisiones experimentales</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Sección IV · Regresión</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Sección V · Mediciones repetidas</span>
-  </li>
       </ul>
   </li>
     </ul>
@@ -273,44 +227,44 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">En esta página</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#recuperando-nuestra-base-de-becerros" id="toc-recuperando-nuestra-base-de-becerros" class="nav-link active" data-scroll-target="#recuperando-nuestra-base-de-becerros"><span class="header-section-number">1</span> Recuperando nuestra base de becerros</a>
+  <li><a href="#recuperando-nuestra-base-de-becerros" id="toc-recuperando-nuestra-base-de-becerros" class="nav-link active" data-scroll-target="#recuperando-nuestra-base-de-becerros"><span class="header-section-number">3.1</span> Recuperando nuestra base de becerros</a>
   <ul class="collapse">
-  <li><a href="#población-muestra-y-unidad-de-observación" id="toc-población-muestra-y-unidad-de-observación" class="nav-link" data-scroll-target="#población-muestra-y-unidad-de-observación"><span class="header-section-number">1.1</span> Población, muestra y unidad de observación</a></li>
+  <li><a href="#población-muestra-y-unidad-de-observación" id="toc-población-muestra-y-unidad-de-observación" class="nav-link" data-scroll-target="#población-muestra-y-unidad-de-observación"><span class="header-section-number">3.1.1</span> Población, muestra y unidad de observación</a></li>
   </ul></li>
-  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central"><span class="header-section-number">2</span> Medidas de tendencia central</a>
+  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central"><span class="header-section-number">3.2</span> Medidas de tendencia central</a>
   <ul class="collapse">
-  <li><a href="#media-aritmética" id="toc-media-aritmética" class="nav-link" data-scroll-target="#media-aritmética"><span class="header-section-number">2.1</span> Media aritmética</a></li>
-  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana"><span class="header-section-number">2.2</span> Mediana</a></li>
-  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda"><span class="header-section-number">2.3</span> Moda</a></li>
-  <li><a href="#qué-sucede-cuando-encontramos-un-valor-extremo" id="toc-qué-sucede-cuando-encontramos-un-valor-extremo" class="nav-link" data-scroll-target="#qué-sucede-cuando-encontramos-un-valor-extremo"><span class="header-section-number">2.4</span> ¿Qué sucede cuando encontramos un valor extremo?</a></li>
+  <li><a href="#media-aritmética" id="toc-media-aritmética" class="nav-link" data-scroll-target="#media-aritmética"><span class="header-section-number">3.2.1</span> Media aritmética</a></li>
+  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana"><span class="header-section-number">3.2.2</span> Mediana</a></li>
+  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda"><span class="header-section-number">3.2.3</span> Moda</a></li>
+  <li><a href="#qué-sucede-cuando-encontramos-un-valor-extremo" id="toc-qué-sucede-cuando-encontramos-un-valor-extremo" class="nav-link" data-scroll-target="#qué-sucede-cuando-encontramos-un-valor-extremo"><span class="header-section-number">3.2.4</span> ¿Qué sucede cuando encontramos un valor extremo?</a></li>
   </ul></li>
-  <li><a href="#variabilidad-biológica" id="toc-variabilidad-biológica" class="nav-link" data-scroll-target="#variabilidad-biológica"><span class="header-section-number">3</span> Variabilidad biológica</a>
+  <li><a href="#variabilidad-biológica" id="toc-variabilidad-biológica" class="nav-link" data-scroll-target="#variabilidad-biológica"><span class="header-section-number">3.3</span> Variabilidad biológica</a>
   <ul class="collapse">
-  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango"><span class="header-section-number">3.1</span> Rango</a></li>
-  <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza"><span class="header-section-number">3.2</span> Varianza</a></li>
-  <li><a href="#desviación-estándar" id="toc-desviación-estándar" class="nav-link" data-scroll-target="#desviación-estándar"><span class="header-section-number">3.3</span> Desviación estándar</a></li>
-  <li><a href="#coeficiente-de-variación" id="toc-coeficiente-de-variación" class="nav-link" data-scroll-target="#coeficiente-de-variación"><span class="header-section-number">3.4</span> Coeficiente de variación</a></li>
+  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango"><span class="header-section-number">3.3.1</span> Rango</a></li>
+  <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza"><span class="header-section-number">3.3.2</span> Varianza</a></li>
+  <li><a href="#desviación-estándar" id="toc-desviación-estándar" class="nav-link" data-scroll-target="#desviación-estándar"><span class="header-section-number">3.3.3</span> Desviación estándar</a></li>
+  <li><a href="#coeficiente-de-variación" id="toc-coeficiente-de-variación" class="nav-link" data-scroll-target="#coeficiente-de-variación"><span class="header-section-number">3.3.4</span> Coeficiente de variación</a></li>
   </ul></li>
-  <li><a href="#comparando-los-tratamientos" id="toc-comparando-los-tratamientos" class="nav-link" data-scroll-target="#comparando-los-tratamientos"><span class="header-section-number">4</span> Comparando los tratamientos</a></li>
-  <li><a href="#distribución-de-frecuencias-e-histogramas" id="toc-distribución-de-frecuencias-e-histogramas" class="nav-link" data-scroll-target="#distribución-de-frecuencias-e-histogramas"><span class="header-section-number">5</span> Distribución de frecuencias e histogramas</a></li>
-  <li><a href="#diagramas-de-caja-y-cuartiles" id="toc-diagramas-de-caja-y-cuartiles" class="nav-link" data-scroll-target="#diagramas-de-caja-y-cuartiles"><span class="header-section-number">6</span> Diagramas de caja y cuartiles</a></li>
-  <li><a href="#valores-atípicos" id="toc-valores-atípicos" class="nav-link" data-scroll-target="#valores-atípicos"><span class="header-section-number">7</span> Valores atípicos</a></li>
-  <li><a href="#otros-gráficos-para-examinar-grupos" id="toc-otros-gráficos-para-examinar-grupos" class="nav-link" data-scroll-target="#otros-gráficos-para-examinar-grupos"><span class="header-section-number">8</span> Otros gráficos para examinar grupos</a></li>
-  <li><a href="#práctica-complementaria-corredores" id="toc-práctica-complementaria-corredores" class="nav-link" data-scroll-target="#práctica-complementaria-corredores"><span class="header-section-number">9</span> Práctica complementaria: corredores</a></li>
-  <li><a href="#actividad-integradora" id="toc-actividad-integradora" class="nav-link" data-scroll-target="#actividad-integradora"><span class="header-section-number">10</span> Actividad integradora</a></li>
-  <li><a href="#lo-que-aprendimos" id="toc-lo-que-aprendimos" class="nav-link" data-scroll-target="#lo-que-aprendimos"><span class="header-section-number">11</span> Lo que aprendimos</a></li>
+  <li><a href="#comparando-los-tratamientos" id="toc-comparando-los-tratamientos" class="nav-link" data-scroll-target="#comparando-los-tratamientos"><span class="header-section-number">3.4</span> Comparando los tratamientos</a></li>
+  <li><a href="#distribución-de-frecuencias-e-histogramas" id="toc-distribución-de-frecuencias-e-histogramas" class="nav-link" data-scroll-target="#distribución-de-frecuencias-e-histogramas"><span class="header-section-number">3.5</span> Distribución de frecuencias e histogramas</a></li>
+  <li><a href="#diagramas-de-caja-y-cuartiles" id="toc-diagramas-de-caja-y-cuartiles" class="nav-link" data-scroll-target="#diagramas-de-caja-y-cuartiles"><span class="header-section-number">3.6</span> Diagramas de caja y cuartiles</a></li>
+  <li><a href="#valores-atípicos" id="toc-valores-atípicos" class="nav-link" data-scroll-target="#valores-atípicos"><span class="header-section-number">3.7</span> Valores atípicos</a></li>
+  <li><a href="#otros-gráficos-para-examinar-grupos" id="toc-otros-gráficos-para-examinar-grupos" class="nav-link" data-scroll-target="#otros-gráficos-para-examinar-grupos"><span class="header-section-number">3.8</span> Otros gráficos para examinar grupos</a></li>
+  <li><a href="#práctica-complementaria-corredores" id="toc-práctica-complementaria-corredores" class="nav-link" data-scroll-target="#práctica-complementaria-corredores"><span class="header-section-number">3.9</span> Práctica complementaria: corredores</a></li>
+  <li><a href="#actividad-integradora" id="toc-actividad-integradora" class="nav-link" data-scroll-target="#actividad-integradora"><span class="header-section-number">3.10</span> Actividad integradora</a></li>
+  <li><a href="#lo-que-aprendimos" id="toc-lo-que-aprendimos" class="nav-link" data-scroll-target="#lo-que-aprendimos"><span class="header-section-number">3.11</span> Lo que aprendimos</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/edit/main/Capitulo-02.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Navegación</a></li><li class="breadcrumb-item"><a href="./Capitulo-02.html">02 · ¿Qué nos dicen los datos?</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Capitulo-01.html">Sección I · Primer encuentro con los datos</a></li><li class="breadcrumb-item"><a href="./Capitulo-02.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Capítulo 2. ¿Qué nos dicen nuestros datos?</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Capítulo 2. ¿Qué nos dicen nuestros datos?</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Capítulo 2. ¿Qué nos dicen nuestros datos?</span></h1>
 <p class="subtitle lead">Estadística descriptiva, variabilidad biológica y visualización</p>
 </div>
 
@@ -349,8 +303,8 @@ Nota
 </div>
 <p>En el capítulo anterior organizamos las observaciones de 15 becerros distribuidos en tres tratamientos. Ahora queremos responder algunas preguntas: ¿cuál es su ganancia de peso promedio?, ¿todos los animales responden igual?, ¿qué tan variables son los resultados?, ¿qué información aporta un gráfico que no encontramos fácilmente en una tabla?</p>
 <p>La <strong>estadística descriptiva</strong> reúne procedimientos para organizar, resumir y representar las observaciones mediante tablas, medidas numéricas y gráficos. Permite explorar el centro, la dispersión y la forma de los datos, pero por sí sola no demuestra que una diferencia entre grupos se deba al tratamiento (Webb, 2021).</p>
-<section id="recuperando-nuestra-base-de-becerros" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="recuperando-nuestra-base-de-becerros"><span class="header-section-number">1</span> Recuperando nuestra base de becerros</h2>
+<section id="recuperando-nuestra-base-de-becerros" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="recuperando-nuestra-base-de-becerros"><span class="header-section-number">3.1</span> Recuperando nuestra base de becerros</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### GENERAMOS NUESTRA BASE DE DATOS ----------------</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>becerro <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
@@ -403,18 +357,18 @@ Nota
       0       0       0 </code></pre>
 </div>
 </div>
-<section id="población-muestra-y-unidad-de-observación" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="población-muestra-y-unidad-de-observación"><span class="header-section-number">1.1</span> Población, muestra y unidad de observación</h3>
+<section id="población-muestra-y-unidad-de-observación" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="población-muestra-y-unidad-de-observación"><span class="header-section-number">3.1.1</span> Población, muestra y unidad de observación</h3>
 <p>La <strong>población</strong> es el conjunto de individuos u observaciones sobre el cual queremos obtener información. Una <strong>muestra</strong> es la parte de esa población que efectivamente estudiamos. La <strong>unidad de observación</strong> es el elemento sobre el cual registramos una medida (Webb, 2021).</p>
 <p>En nuestro ejemplo, los 15 becerros constituyen el conjunto observado. Si nuestro objetivo fuera generalizar los resultados a una población más amplia de becerros, necesitaríamos definir sus características y considerar cómo fueron seleccionados los animales.</p>
 <p>La <strong>unidad experimental</strong> es aquella que recibe un tratamiento asignado de manera independiente. Puede coincidir con el animal, pero si la alimentación se aplica a todo un corral, por ejemplo, podría ser el corral. Esta distinción es crucial al diseñar y analizar experimentos (Festing y Altman, 2002).</p>
 </section>
 </section>
-<section id="medidas-de-tendencia-central" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">2</span> Medidas de tendencia central</h2>
+<section id="medidas-de-tendencia-central" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">3.2</span> Medidas de tendencia central</h2>
 <p>Las <strong>medidas de tendencia central</strong> describen dónde se ubica el centro de un conjunto de observaciones. Las más utilizadas son la media, la mediana y la moda (Webb, 2021).</p>
-<section id="media-aritmética" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="media-aritmética"><span class="header-section-number">2.1</span> Media aritmética</h3>
+<section id="media-aritmética" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="media-aritmética"><span class="header-section-number">3.2.1</span> Media aritmética</h3>
 <p>La <strong>media</strong> es la suma de los valores dividida entre el número de observaciones. En una muestra se expresa como:</p>
 <p><span class="math display">\[
 \bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
@@ -433,8 +387,8 @@ Nota
 </div>
 <p>La ganancia diaria de peso promedio es <strong>292.67 g/día</strong>. Esta cifra resume los 15 registros, pero no significa que todos los animales hayan presentado exactamente esa ganancia.</p>
 </section>
-<section id="mediana" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="mediana"><span class="header-section-number">2.2</span> Mediana</h3>
+<section id="mediana" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="mediana"><span class="header-section-number">3.2.2</span> Mediana</h3>
 <p>La <strong>mediana</strong> es el valor central de los datos ordenados de menor a mayor. Es menos sensible a valores extremos que la media y puede ser útil cuando la distribución es asimétrica (Webb, 2021).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### MEDIANA ----------------</span></span>
@@ -449,8 +403,8 @@ Nota
 </div>
 <p>La mediana es <strong>290 g/día</strong>.</p>
 </section>
-<section id="moda" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="moda"><span class="header-section-number">2.3</span> Moda</h3>
+<section id="moda" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="moda"><span class="header-section-number">3.2.3</span> Moda</h3>
 <p>La <strong>moda</strong> es el valor que aparece con mayor frecuencia. Puede existir más de una moda si diferentes valores comparten la frecuencia máxima. Para identificarla no debemos utilizar <code>mode()</code> de R, ya que esa función describe el almacenamiento interno de un objeto.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### FRECUENCIA DE LAS OBSERVACIONES ----------------</span></span>
@@ -462,8 +416,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="qué-sucede-cuando-encontramos-un-valor-extremo" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="qué-sucede-cuando-encontramos-un-valor-extremo"><span class="header-section-number">2.4</span> ¿Qué sucede cuando encontramos un valor extremo?</h3>
+<section id="qué-sucede-cuando-encontramos-un-valor-extremo" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="qué-sucede-cuando-encontramos-un-valor-extremo"><span class="header-section-number">3.2.4</span> ¿Qué sucede cuando encontramos un valor extremo?</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### MODIFICAMOS UNA OBSERVACIÓN ----------------</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>DATA2 <span class="ot">&lt;-</span> DATA</span>
@@ -489,12 +443,12 @@ Nota
 <p>La media aumenta de 292.67 a <strong>303.33 g/día</strong>, mientras que la mediana permanece en 290 g/día. Esta diferencia ilustra por qué debemos conocer la distribución antes de elegir cómo resumirla.</p>
 </section>
 </section>
-<section id="variabilidad-biológica" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="variabilidad-biológica"><span class="header-section-number">3</span> Variabilidad biológica</h2>
+<section id="variabilidad-biológica" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="variabilidad-biológica"><span class="header-section-number">3.3</span> Variabilidad biológica</h2>
 <p>La <strong>variabilidad biológica</strong> se refiere a las diferencias entre individuos, incluso cuando comparten características y condiciones de manejo. En los sistemas de producción animal, esas diferencias pueden relacionarse con genética, fisiología, alimentación, ambiente, estado sanitario y otras fuentes de variación.</p>
 <p>La variabilidad influye también en la capacidad de un experimento para detectar efectos. Una diferencia promedio entre tratamientos puede ser relativamente clara cuando la dispersión individual es pequeña, y más difícil de distinguir cuando las respuestas son heterogéneas. La interpretación de resultados requiere considerar tanto la magnitud del efecto como la variación y el diseño del estudio (Festing y Altman, 2002).</p>
-<section id="rango" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="rango"><span class="header-section-number">3.1</span> Rango</h3>
+<section id="rango" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="rango"><span class="header-section-number">3.3.1</span> Rango</h3>
 <p>El <strong>rango</strong> es la diferencia entre el máximo y el mínimo observado. Resume la amplitud total de los datos, aunque solo utiliza dos valores y por ello es sensible a observaciones extremas.</p>
 <p><span class="math display">\[
 R=x_{\max}-x_{\min}
@@ -516,8 +470,8 @@ R=x_{\max}-x_{\min}
 </div>
 <p>Los valores van de 250 a 340 g/día: el rango es <strong>90 g/día</strong>.</p>
 </section>
-<section id="varianza" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="varianza"><span class="header-section-number">3.2</span> Varianza</h3>
+<section id="varianza" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="varianza"><span class="header-section-number">3.3.2</span> Varianza</h3>
 <p>La <strong>varianza muestral</strong> cuantifica la dispersión alrededor de la media mediante la suma de las desviaciones elevadas al cuadrado, dividida entre los grados de libertad de la muestra (Webb, 2021).</p>
 <p><span class="math display">\[
 s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
@@ -541,8 +495,8 @@ s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
 </div>
 <p>La varianza es aproximadamente <strong>678.10 (g/día)²</strong>. Las unidades al cuadrado hacen que no sea tan intuitiva como la desviación estándar, pero su cálculo resulta esencial para comprender ANOVA.</p>
 </section>
-<section id="desviación-estándar" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="desviación-estándar"><span class="header-section-number">3.3</span> Desviación estándar</h3>
+<section id="desviación-estándar" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="desviación-estándar"><span class="header-section-number">3.3.3</span> Desviación estándar</h3>
 <p>La <strong>desviación estándar (DE)</strong> es la raíz cuadrada de la varianza. Expresa la dispersión de los valores en las mismas unidades que la variable original (Webb, 2021).</p>
 <p><span class="math display">\[
 s=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}
@@ -560,8 +514,8 @@ s=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}
 </div>
 <p>La DE es aproximadamente <strong>26.04 g/día</strong>. No describe la precisión de la media: ese es otro concepto, denominado <em>error estándar</em>, que estudiaremos más adelante.</p>
 </section>
-<section id="coeficiente-de-variación" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="coeficiente-de-variación"><span class="header-section-number">3.4</span> Coeficiente de variación</h3>
+<section id="coeficiente-de-variación" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="coeficiente-de-variación"><span class="header-section-number">3.3.4</span> Coeficiente de variación</h3>
 <p>El <strong>coeficiente de variación (CV)</strong> relaciona la desviación estándar con la media y expresa la dispersión relativa como porcentaje. Se utiliza con variables positivas en escala de razón, cuando la media está suficientemente alejada de cero (Webb, 2021).</p>
 <p><span class="math display">\[
 CV=\frac{s}{\bar{x}}\times100
@@ -577,8 +531,8 @@ CV=\frac{s}{\bar{x}}\times100
 <p>El CV de los 15 animales es aproximadamente <strong>8.90%</strong>.</p>
 </section>
 </section>
-<section id="comparando-los-tratamientos" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="comparando-los-tratamientos"><span class="header-section-number">4</span> Comparando los tratamientos</h2>
+<section id="comparando-los-tratamientos" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="comparando-los-tratamientos"><span class="header-section-number">3.4</span> Comparando los tratamientos</h2>
 <p>Ahora podemos calcular las medias y desviaciones estándar de los tres tratamientos. La descripción por grupos es importante: dos grupos pueden tener medias parecidas y dispersión muy distinta.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### MEDIA POR TRATAMIENTO ----------------</span></span>
@@ -636,8 +590,8 @@ CV=\frac{s}{\bar{x}}\times100
 </figure>
 </div>
 </section>
-<section id="distribución-de-frecuencias-e-histogramas" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="distribución-de-frecuencias-e-histogramas"><span class="header-section-number">5</span> Distribución de frecuencias e histogramas</h2>
+<section id="distribución-de-frecuencias-e-histogramas" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="distribución-de-frecuencias-e-histogramas"><span class="header-section-number">3.5</span> Distribución de frecuencias e histogramas</h2>
 <p>Una <strong>distribución de frecuencias</strong> muestra cuántas observaciones aparecen en cada valor o intervalo. Es una primera forma de identificar dónde se concentran los registros.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### FRECUENCIA DE GANANCIA DE PESO ----------------</span></span>
@@ -703,8 +657,8 @@ CV=\frac{s}{\bar{x}}\times100
 </div>
 <p>Con solo 15 observaciones, la forma visual de la distribución depende mucho de los intervalos y del suavizado. Por eso debemos evitar conclusiones demasiado firmes sobre normalidad u otras características de la distribución.</p>
 </section>
-<section id="diagramas-de-caja-y-cuartiles" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="diagramas-de-caja-y-cuartiles"><span class="header-section-number">6</span> Diagramas de caja y cuartiles</h2>
+<section id="diagramas-de-caja-y-cuartiles" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="diagramas-de-caja-y-cuartiles"><span class="header-section-number">3.6</span> Diagramas de caja y cuartiles</h2>
 <p>Los <strong>cuartiles</strong> dividen los datos ordenados en cuatro partes. El primero (Q1) corresponde al percentil 25 y el tercero (Q3), al percentil 75. La diferencia <strong>RIC = Q3 − Q1</strong> se denomina <em>rango intercuartílico</em> y contiene el 50% central de las observaciones.</p>
 <p>Un <strong>diagrama de caja o boxplot</strong> muestra la mediana, los cuartiles y los bigotes. En la representación habitual de R, los bigotes terminan en los valores más extremos situados dentro de 1.5 veces el RIC desde cada cuartil; los puntos fuera de esos límites se señalan por separado (Webb, 2021).</p>
 <div class="cell">
@@ -757,8 +711,8 @@ CV=\frac{s}{\bar{x}}\times100
 <span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="valores-atípicos" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="valores-atípicos"><span class="header-section-number">7</span> Valores atípicos</h2>
+<section id="valores-atípicos" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="valores-atípicos"><span class="header-section-number">3.7</span> Valores atípicos</h2>
 <p>Un <strong>valor atípico</strong> es una observación considerablemente diferente del resto de los datos. Puede representar una respuesta biológica real, un problema de medición, un error de captura o una condición específica del experimento. No debe eliminarse automáticamente: primero necesitamos revisar su origen y su influencia sobre los resultados (Webb, 2021; Festing y Altman, 2002).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### VALORES ATÍPICOS ----------------</span></span>
@@ -796,8 +750,8 @@ CV=\frac{s}{\bar{x}}\times100
 </div>
 </div>
 </section>
-<section id="otros-gráficos-para-examinar-grupos" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="otros-gráficos-para-examinar-grupos"><span class="header-section-number">8</span> Otros gráficos para examinar grupos</h2>
+<section id="otros-gráficos-para-examinar-grupos" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="otros-gráficos-para-examinar-grupos"><span class="header-section-number">3.8</span> Otros gráficos para examinar grupos</h2>
 <p>Los gráficos de <code>ggpubr</code> y <code>yarrr</code> pueden reunir observaciones y resúmenes descriptivos en una misma figura. Conviene saber qué representan los elementos del gráfico: por ejemplo, una desviación estándar no es lo mismo que un error estándar o un intervalo de confianza.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### MEDIAS Y DESVIACIÓN ESTÁNDAR ----------------</span></span>
@@ -830,8 +784,8 @@ CV=\frac{s}{\bar{x}}\times100
 <span id="cb59-28"><a href="#cb59-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="práctica-complementaria-corredores" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="práctica-complementaria-corredores"><span class="header-section-number">9</span> Práctica complementaria: corredores</h2>
+<section id="práctica-complementaria-corredores" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="práctica-complementaria-corredores"><span class="header-section-number">3.9</span> Práctica complementaria: corredores</h2>
 <p>Los procedimientos descriptivos se pueden aplicar a distintas variables. Vamos a construir una segunda base con tiempos de 15 corredores distribuidos en tres métodos. Este ejemplo nos ayudará a comprobar que describir los datos no depende de la especie o del tipo de respuesta, sino de la variable y de nuestra pregunta de investigación.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### BASE DE CORREDORES ----------------</span></span>
@@ -920,15 +874,15 @@ CV=\frac{s}{\bar{x}}\times100
 </div>
 <p>Si el recorrido fue equivalente para todos, el método 3 presenta descriptivamente el menor tiempo medio. Sin embargo, no podemos atribuir esa diferencia al entrenamiento sin conocer el diseño del experimento y aplicar procedimientos inferenciales adecuados.</p>
 </section>
-<section id="actividad-integradora" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="actividad-integradora"><span class="header-section-number">10</span> Actividad integradora</h2>
+<section id="actividad-integradora" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="actividad-integradora"><span class="header-section-number">3.10</span> Actividad integradora</h2>
 <p>Utilizando la base de <strong>15 becerros</strong>, identifica la variable de respuesta y el factor de tratamiento. Calcula media, mediana, varianza, desviación estándar y CV del conjunto completo y de cada tratamiento. Construye un histograma y un diagrama de caja con observaciones individuales. Después redacta un párrafo que describa los resultados sin afirmar todavía que existe un efecto del tratamiento.</p>
 <div class="callout-example" title="Ejemplo de interpretación">
 <p>Se analizaron los registros de ganancia diaria de peso de 15 becerros distribuidos en tres tratamientos. La media general fue de 292.67 g/día, con DE de 26.04 g/día y CV de 8.90%. Las medias de TX1, TX2 y TX3 fueron de 280, 278 y 320 g/día. El tercer tratamiento presentó la mayor media y la mayor dispersión. Estas diferencias describen los datos observados y deberán evaluarse posteriormente con un análisis que considere el diseño experimental.</p>
 </div>
 </section>
-<section id="lo-que-aprendimos" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="lo-que-aprendimos"><span class="header-section-number">11</span> Lo que aprendimos</h2>
+<section id="lo-que-aprendimos" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="lo-que-aprendimos"><span class="header-section-number">3.11</span> Lo que aprendimos</h2>
 <p>La media y la mediana permiten describir la posición central de los datos. La varianza, desviación estándar y CV ayudan a caracterizar su dispersión. Los histogramas, boxplots y gráficos con observaciones individuales permiten identificar patrones y posibles valores extremos. Estos procedimientos son indispensables antes de realizar un análisis inferencial.</p>
 <p>En la siguiente sección estudiaremos distribuciones, muestreo, teorema central del límite, error estándar e intervalos de confianza.</p>
 <div class="grid">
@@ -1348,6 +1302,18 @@ FMVZ–UNAM · Sección I</p>
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Capitulo-01.html" class="pagination-link" aria-label="Capítulo 1. Nuestros primeros pasos en R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 1. Nuestros primeros pasos en R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./recursos.html" class="pagination-link" aria-label="Recursos del curso">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Recursos del curso</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1356,7 +1322,7 @@ FMVZ–UNAM · Sección I</p>
     </div>   
     <div class="nav-footer-center">
 <p>Dr.&nbsp;Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM</p>
-</div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/edit/main/Capitulo-02.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/juanangeles-UNAM/ciencia-animal-datos/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
