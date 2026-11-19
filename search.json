@@ -22,111 +22,111 @@
   {
     "objectID": "Capitulo-01.html",
     "href": "Capitulo-01.html",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "",
     "text": "2.1 ¿Por qué aprender R para estudiar Ciencia Animal?\nEn Ciencia Animal trabajamos continuamente con datos. Registramos el peso de los animales, su consumo de alimento, la ganancia diaria de peso, la producción de leche y diferentes indicadores relacionados con la salud y el desempeño productivo. Sin embargo, una base de datos no explica por sí misma el fenómeno que estudiamos: necesitamos comprender qué contiene, cómo se obtuvo y qué preguntas podemos responder con ella.\nR es un lenguaje y entorno de análisis que permite organizar información, realizar cálculos, generar gráficos y aplicar procedimientos estadísticos. Una ventaja importante es que podemos guardar las instrucciones utilizadas y ejecutarlas nuevamente. La reproducibilidad comienza con decisiones sencillas: conservar el código, identificar las variables y registrar adecuadamente los datos.\nEn esta práctica utilizaremos R como una herramienta para comprender los datos, no como un fin en sí mismo. Comenzaremos con operaciones simples y construiremos progresivamente un conjunto de datos de 15 becerros (Webb, 2021).\nAl terminar este capítulo podrás: crear objetos y vectores; distinguir matrices y bases de datos; reconocer variables categóricas y numéricas; seleccionar registros; y comprobar que los datos fueron importados o creados correctamente.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#conociendo-r-rstudio-y-los-paquetes",
     "href": "Capitulo-01.html#conociendo-r-rstudio-y-los-paquetes",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.2 Conociendo R, RStudio y los paquetes",
     "text": "2.2 Conociendo R, RStudio y los paquetes\nR ejecuta los cálculos y procedimientos. RStudio es un entorno que facilita escribir scripts, examinar objetos y visualizar resultados. Un script es un archivo de texto con instrucciones de R; guardarlo permite repetir un análisis sin reconstruir todas las operaciones manualmente.\nLos paquetes reúnen funciones adicionales. Se instalan una sola vez por equipo y se cargan en cada sesión donde se necesiten. Empezaremos con psych y más adelante utilizaremos ggplot2, ggpubr y yarrr.\n\n#### PAQUETES A DESCARGAR ----------------\n\n# Ejecutar esta instrucción una vez:\ninstall.packages(\"psych\")\n\n#### CARGAMOS EL PAQUETE ----------------\nlibrary(psych)\n\nEn RStudio, el editor de scripts contiene las instrucciones; la consola muestra su ejecución; el panel Environment permite observar los objetos; y el panel de gráficos muestra las figuras producidas.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#nuestros-primeros-objetos",
     "href": "Capitulo-01.html#nuestros-primeros-objetos",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.3 Nuestros primeros objetos",
     "text": "2.3 Nuestros primeros objetos\nUn objeto almacena un valor o una estructura de información para utilizarla posteriormente. El símbolo &lt;- asigna un valor al nombre elegido. Cuando escribimos el nombre del objeto, R muestra su contenido; con str() observamos su estructura.\n\n#### GENERANDO OBJETOS ----------------\nX &lt;- 10\nX\n\n[1] 10\n\nstr(X)\n\n num 10\n\n#### OPERACIONES MATEMÁTICAS ----------------\nY &lt;- 6 + 5\nY\n\n[1] 11\n\nstr(Y)\n\n num 11\n\n\nPodemos utilizar exactamente el mismo procedimiento para describir un problema sencillo de producción animal.\n\n#### PESO DE UN BECERRO ----------------\nPESO &lt;- 250\nGANANCIA &lt;- 30\nPESO.FINAL &lt;- PESO + GANANCIA\nPESO.FINAL\n\n[1] 280\n\n\nEn este ejemplo el peso final sería de 280 kg. La importancia del ejercicio es reconocer que R conserva los valores y permite combinarlos en nuevas operaciones.\n\n\n\n\n\n\nTipExperimentemos\n\n\n\nCambia el peso inicial a 275 kg y la ganancia a 42 kg. ¿Qué resultado obtienes? ¿Qué sucede si ejecutas solamente la última línea sin haber creado antes los objetos?",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#secuencias-y-vectores",
     "href": "Capitulo-01.html#secuencias-y-vectores",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.4 Secuencias y vectores",
     "text": "2.4 Secuencias y vectores\nUna secuencia es una sucesión de valores ordenados. Con el operador : podemos generar números enteros consecutivos. Esto será útil para crear identificadores de animales y numerar observaciones.\n\n#### SECUENCIAS ----------------\nSECUENCIA &lt;- 10:300\nSECUENCIA\n\n  [1]  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27\n [19]  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45\n [37]  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63\n [55]  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81\n [73]  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99\n [91] 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117\n[109] 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135\n[127] 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153\n[145] 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171\n[163] 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189\n[181] 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207\n[199] 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225\n[217] 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243\n[235] 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261\n[253] 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279\n[271] 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297\n[289] 298 299 300\n\nstr(SECUENCIA)\n\n int [1:291] 10 11 12 13 14 15 16 17 18 19 ...\n\nbecerro &lt;- 1:15\nbecerro\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15\n\nlength(becerro)\n\n[1] 15\n\n\nUn vector es una estructura de R que contiene varios elementos del mismo tipo. La función c() permite combinar valores y los corchetes permiten seleccionar sus posiciones. En R la primera posición se identifica con el número 1.\n\n#### VECTORES ----------------\nVECTOR &lt;- c(\"A\", \"B\", \"C\", \"D\")\nVECTOR\n\n[1] \"A\" \"B\" \"C\" \"D\"\n\nstr(VECTOR)\n\n chr [1:4] \"A\" \"B\" \"C\" \"D\"\n\n#### EXTRAER ELEMENTOS ----------------\nVECTOR[1]\n\n[1] \"A\"\n\nVECTOR[2]\n\n[1] \"B\"\n\nVECTOR[1:3]\n\n[1] \"A\" \"B\" \"C\"\n\n\n\n\n\n\n\n\nTipEjercicio\n\n\n\nCrea un vector con pesos de cinco ovejas: 45, 48, 52, 47 y 50 kg. Recupera la tercera observación y calcula el promedio con mean().",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#matrices",
     "href": "Capitulo-01.html#matrices",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.5 Matrices",
     "text": "2.5 Matrices\nUna matriz organiza elementos del mismo tipo en filas y columnas. Para seleccionar uno de sus elementos indicamos primero la fila y después la columna, separadas por una coma.\n\n#### MATRICES ----------------\nMATRIZ &lt;- matrix(5, nrow = 5, ncol = 5)\nMATRIZ\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    5    5    5    5    5\n[2,]    5    5    5    5    5\n[3,]    5    5    5    5    5\n[4,]    5    5    5    5    5\n[5,]    5    5    5    5    5\n\nMATRIZ2 &lt;- matrix(\n  c(\n    0, 1, 1,\n    1, 0, 1,\n    1, 1, 0\n  ),\n  nrow = 3,\n  ncol = 3\n)\n\nMATRIZ2\n\n     [,1] [,2] [,3]\n[1,]    0    1    1\n[2,]    1    0    1\n[3,]    1    1    0\n\n#### PRIMERO FILA Y DESPUÉS COLUMNA ----------------\nUNO &lt;- MATRIZ2[3, 2]\nUNO\n\n[1] 1\n\n\nLas matrices resultan útiles para diversos cálculos, pero en experimentación animal normalmente necesitamos reunir columnas con diferentes tipos de información. Para ello trabajaremos con data.frame.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#funciones-y-ayuda",
     "href": "Capitulo-01.html#funciones-y-ayuda",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.6 Funciones y ayuda",
     "text": "2.6 Funciones y ayuda\nUna función realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.\n\n#### FUNCIONES ----------------\nstr(Y)\nmode(Y)\nls()\n\n#### ¿NECESITAS AYUDA? ----------------\n?mean\n?str\n?hist\n\nEn R, mode() informa sobre el modo de almacenamiento del objeto: no debe confundirse con la moda estadística, que veremos en el capítulo siguiente. La función ls() muestra los objetos disponibles en el entorno.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#variables-y-bases-de-datos",
     "href": "Capitulo-01.html#variables-y-bases-de-datos",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.7 Variables y bases de datos",
     "text": "2.7 Variables y bases de datos\nUna variable es una característica que registramos y que puede asumir valores diferentes entre individuos u observaciones. Las variables cuantitativas representan cantidades medibles o contables, como peso o producción de leche; las categóricas identifican grupos o cualidades, como tratamiento, raza o sexo (Webb, 2021).\nEn una base de datos, por lo general cada fila corresponde a una observación y cada columna a una variable. Un identificador de animal puede expresarse mediante números sin que ello lo convierta en una medida biológica continua.\n\n2.7.1 Construyamos nuestra base de 15 becerros\n\n#### GENERAMOS UNA BASE DE DATOS ----------------\nbecerro &lt;- 1:15\n\nTX &lt;- c(\n  1, 1, 1, 1, 1,\n  2, 2, 2, 2, 2,\n  3, 3, 3, 3, 3\n)\n\nGAN &lt;- c(\n  270, 300, 280, 280, 270,\n  290, 250, 280, 290, 280,\n  290, 340, 330, 300, 340\n)\n\n#### UNIMOS COLUMNAS ----------------\nDATA &lt;- cbind(becerro, TX, GAN)\nDATA\n\n      becerro TX GAN\n [1,]       1  1 270\n [2,]       2  1 300\n [3,]       3  1 280\n [4,]       4  1 280\n [5,]       5  1 270\n [6,]       6  2 290\n [7,]       7  2 250\n [8,]       8  2 280\n [9,]       9  2 290\n[10,]      10  2 280\n[11,]      11  3 290\n[12,]      12  3 340\n[13,]      13  3 330\n[14,]      14  3 300\n[15,]      15  3 340\n\nDATA[8, ]\n\nbecerro      TX     GAN \n      8       2     280 \n\n#### CONVERTIMOS A DATA FRAME ----------------\nDATA &lt;- as.data.frame(DATA)\nDATA$TX &lt;- as.factor(DATA$TX)\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: num  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\n\nLa columna becerro identifica cada animal; TX indica el grupo de tratamiento; y GAN contiene la ganancia diaria de peso en g/día. La función as.factor() permite indicar que TX representa categorías, no una cantidad continua.\nUna vez comprendido el procedimiento anterior, podemos crear la misma estructura directamente:\n\n#### OTRA FORMA DE CREAR LA BASE ----------------\nDATA &lt;- data.frame(\n  becerro = 1:15,\n  TX = factor(c(\n    1, 1, 1, 1, 1,\n    2, 2, 2, 2, 2,\n    3, 3, 3, 3, 3\n  )),\n  GAN = c(\n    270, 300, 280, 280, 270,\n    290, 250, 280, 290, 280,\n    290, 340, 330, 300, 340\n  )\n)\n\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#revisando-los-datos-antes-del-análisis",
     "href": "Capitulo-01.html#revisando-los-datos-antes-del-análisis",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.8 Revisando los datos antes del análisis",
     "text": "2.8 Revisando los datos antes del análisis\nAntes de aplicar cualquier procedimiento, debemos comprobar que los registros contienen los valores esperados y que las variables tienen el tipo correcto. Un error en la organización de datos puede cambiar el significado del análisis.\n\n#### INSPECCIÓN DE LA BASE ----------------\nhead(DATA)\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n6       6  2 290\n\nsummary(DATA)\n\n    becerro     TX         GAN       \n Min.   : 1.0   1:5   Min.   :250.0  \n 1st Qu.: 4.5   2:5   1st Qu.:280.0  \n Median : 8.0   3:5   Median :290.0  \n Mean   : 8.0         Mean   :292.7  \n 3rd Qu.:11.5         3rd Qu.:300.0  \n Max.   :15.0         Max.   :340.0  \n\nstr(DATA)\n\n'data.frame':   15 obs. of  3 variables:\n $ becerro: int  1 2 3 4 5 6 7 8 9 10 ...\n $ TX     : Factor w/ 3 levels \"1\",\"2\",\"3\": 1 1 1 1 1 2 2 2 2 2 ...\n $ GAN    : num  270 300 280 280 270 290 250 280 290 280 ...\n\nnrow(DATA)\n\n[1] 15\n\nncol(DATA)\n\n[1] 3\n\n#### EXTRAER OBSERVACIONES ----------------\nDATA[8, ]\n\n  becerro TX GAN\n8       8  2 280\n\nDATA[DATA$TX == 1, ]\n\n  becerro TX GAN\n1       1  1 270\n2       2  1 300\n3       3  1 280\n4       4  1 280\n5       5  1 270\n\nDATA[DATA$becerro == 10, ]\n\n   becerro TX GAN\n10      10  2 280\n\n#### DATOS FALTANTES ----------------\ncolSums(is.na(DATA))\n\nbecerro      TX     GAN \n      0       0       0 \n\n\nEn los ejercicios siguientes retomaremos estos mismos registros para estudiar la media, la desviación estándar y la representación gráfica de la variabilidad.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#actividad-del-capítulo",
     "href": "Capitulo-01.html#actividad-del-capítulo",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.9 Actividad del capítulo",
     "text": "2.9 Actividad del capítulo\n\nIdentifica cuántos becerros y tratamientos contiene la base.\nExplica qué representa cada columna y cuál es la variable de respuesta.\nDescribe por qué TX debe almacenarse como factor.\nRecupera solamente las observaciones del tratamiento 2.\nComprueba si existen datos faltantes.\nExporta tus instrucciones a un archivo .R y consérvalo para el capítulo siguiente.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
     "objectID": "Capitulo-01.html#lo-que-aprendimos",
     "href": "Capitulo-01.html#lo-que-aprendimos",
-    "title": "2  Capítulo 1. Nuestros primeros pasos en R",
+    "title": "2  Nuestros primeros pasos en R",
     "section": "2.10 Lo que aprendimos",
     "text": "2.10 Lo que aprendimos\nHemos construido objetos, vectores, matrices y una base de datos. También reconocimos variables cuantitativas y categóricas, y comprobamos la estructura de los registros. En el próximo capítulo describiremos sus valores y estudiaremos por qué los animales no responden exactamente de la misma manera.\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Capítulo 1. Nuestros primeros pasos en R</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Nuestros primeros pasos en R</span>"
     ]
   },
   {
@@ -264,9 +264,9 @@
   {
     "objectID": "recursos.html",
     "href": "recursos.html",
-    "title": "Recursos del curso",
+    "title": "4  Recursos del curso",
     "section": "",
-    "text": "Scripts de R",
+    "text": "4.1 Scripts de R",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
@@ -275,7 +275,7 @@
   {
     "objectID": "recursos.html#scripts-de-r",
     "href": "recursos.html#scripts-de-r",
-    "title": "Recursos del curso",
+    "title": "4  Recursos del curso",
     "section": "",
     "text": "Capítulo 1 — Introducción a R\nCapítulo 2 — Estadística descriptiva\nCLASE1.R original",
     "crumbs": [
@@ -286,9 +286,9 @@
   {
     "objectID": "recursos.html#bases-de-datos",
     "href": "recursos.html#bases-de-datos",
-    "title": "Recursos del curso",
-    "section": "Bases de datos",
-    "text": "Bases de datos\n\nBECERROS.csv: 15 registros originales, con identificación, tratamiento y ganancia diaria de peso.\nCORREDORES_limpio.csv: base organizada sin índice de exportación.\nCORREDORES_original.csv: copia del archivo proporcionado.",
+    "title": "4  Recursos del curso",
+    "section": "4.2 Bases de datos",
+    "text": "4.2 Bases de datos\n\nBECERROS.csv: 15 registros originales, con identificación, tratamiento y ganancia diaria de peso.\nCORREDORES_limpio.csv: base organizada sin índice de exportación.\nCORREDORES_original.csv: copia del archivo proporcionado.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
@@ -297,9 +297,9 @@
   {
     "objectID": "recursos.html#cómo-ejecutar-los-scripts",
     "href": "recursos.html#cómo-ejecutar-los-scripts",
-    "title": "Recursos del curso",
-    "section": "Cómo ejecutar los scripts",
-    "text": "Cómo ejecutar los scripts\nInstala R y RStudio en tu equipo. Abre el script, ejecuta las instrucciones por bloques y observa los resultados en la consola y el panel de gráficos. Los paquetes adicionales se instalan una sola vez con install.packages(\"nombre\") y se cargan en cada sesión mediante library(nombre).\nLos gráficos del sitio se generaron a partir de los valores originales para facilitar su consulta. Para reproducirlos directamente en RStudio, utiliza los fragmentos de código incluidos en cada capítulo.\n\n\n\n\n\n\nTipEstructura recomendada del proyecto\n\n\n\nMantén las carpetas scripts/, datos/ y assets/ en la misma carpeta principal que los archivos .qmd. De esta forma, Quarto podrá localizar correctamente todos los recursos al renderizar el sitio.",
+    "title": "4  Recursos del curso",
+    "section": "4.3 Cómo ejecutar los scripts",
+    "text": "4.3 Cómo ejecutar los scripts\nInstala R y RStudio en tu equipo. Abre el script, ejecuta las instrucciones por bloques y observa los resultados en la consola y el panel de gráficos. Los paquetes adicionales se instalan una sola vez con install.packages(\"nombre\") y se cargan en cada sesión mediante library(nombre).\nLos gráficos del sitio se generaron a partir de los valores originales para facilitar su consulta. Para reproducirlos directamente en RStudio, utiliza los fragmentos de código incluidos en cada capítulo.\n\n\n\n\n\n\nTipEstructura recomendada del proyecto\n\n\n\nMantén las carpetas scripts/, datos/ y assets/ en la misma carpeta principal que los archivos .qmd. De esta forma, Quarto podrá localizar correctamente todos los recursos al renderizar el sitio.",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
@@ -308,9 +308,9 @@
   {
     "objectID": "recursos.html#bibliografía",
     "href": "recursos.html#bibliografía",
-    "title": "Recursos del curso",
-    "section": "Bibliografía",
-    "text": "Bibliografía\nWebb, R. L. (2021). Mostly Harmless Statistics (2.ª ed.). Portland State University. Especialmente capítulos 1–3.\nFesting, M. F. W., & Altman, D. G. (2002). Guidelines for the design and statistical analysis of experiments using laboratory animals. ILAR Journal, 43(4), 244–258. https://doi.org/10.1093/ilar.43.4.244\nMaterial complementario proporcionado: Statistical Concepts; Experimental Design; Statistical Analysis y Randomisation.\n\n\n← Capítulo 2\n\n\nVolver al inicio\n\n\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
+    "title": "4  Recursos del curso",
+    "section": "4.4 Bibliografía",
+    "text": "4.4 Bibliografía\nWebb, R. L. (2021). Mostly Harmless Statistics (2.ª ed.). Portland State University. Especialmente capítulos 1–3.\nFesting, M. F. W., & Altman, D. G. (2002). Guidelines for the design and statistical analysis of experiments using laboratory animals. ILAR Journal, 43(4), 244–258. https://doi.org/10.1093/ilar.43.4.244\nMaterial complementario proporcionado: Statistical Concepts; Experimental Design; Statistical Analysis y Randomisation.\n\n\n← Capítulo 2\n\n\nVolver al inicio\n\n\n\nDr. Juan Carlos Ángeles Hernández\nDepartamento de Medicina y Zootecnia de Rumiantes\nFMVZ–UNAM · Sección I",
     "crumbs": [
       "Sección I · Primer encuentro con los datos",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Recursos del curso</span>"
