@@ -38,10 +38,10 @@ format:
     code-copy: true
     code-fold: false
     smooth-scroll: true
-  pdf:
-    documentclass: scrreprt
-    toc: true
-    number-sections: true
+  # pdf:
+  #   documentclass: scrreprt
+  #   toc: true
+  #   number-sections: true
 
 execute:
   echo: true
