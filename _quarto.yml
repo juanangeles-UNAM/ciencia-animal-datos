@@ -1,0 +1,60 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Ciencia Animal a través de los Datos"
+  description: "Exploración, análisis y razonamiento estadístico con R"
+  site-url: ""
+  navbar:
+    background: light
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: Capitulo-01.qmd
+        text: "01 · Primeros pasos en R"
+      - href: Capitulo-02.qmd
+        text: "02 · ¿Qué nos dicen los datos?"
+      - href: recursos.qmd
+        text: "Scripts, datos y bibliografía"
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - section: "Navegación"
+        contents:
+          - href: index.qmd
+            text: Inicio
+          - href: Capitulo-01.qmd
+            text: "01 · Primeros pasos en R"
+          - href: Capitulo-02.qmd
+            text: "02 · ¿Qué nos dicen los datos?"
+          - href: recursos.qmd
+            text: "Scripts, datos y bibliografía"
+      - section: "Siguientes etapas"
+        contents:
+          - text: "Sección II · Variabilidad e incertidumbre"
+          - text: "Sección III · Decisiones experimentales"
+          - text: "Sección IV · Regresión"
+          - text: "Sección V · Mediciones repetidas"
+  page-footer:
+    center: "Dr. Juan Carlos Ángeles Hernández · Departamento de Medicina y Zootecnia de Rumiantes · FMVZ–UNAM"
+
+format:
+  html:
+    lang: es
+    theme: cosmo
+    css: assets/style.css
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    code-fold: false
+    smooth-scroll: true
+
+execute:
+  echo: true
+  warning: false
+  message: false
+
+bibliography: references.bib

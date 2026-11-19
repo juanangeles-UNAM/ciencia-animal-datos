@@ -1,0 +1,282 @@
+---
+title: "Capítulo 1. Nuestros primeros pasos en R"
+subtitle: "Ciencia Animal a través de los Datos"
+author: "Dr. Juan Carlos Ángeles Hernández"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    code-fold: false
+    theme: cosmo
+lang: es
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+::: {.callout-note}
+**Duración sugerida: 6 horas.** Introducción a R, estructuras de datos y bases de datos.
+:::
+
+## ¿Por qué aprender R para estudiar Ciencia Animal?
+
+En Ciencia Animal trabajamos continuamente con datos. Registramos el peso de los animales, su consumo de alimento, la ganancia diaria de peso, la producción de leche y diferentes indicadores relacionados con la salud y el desempeño productivo. Sin embargo, una base de datos no explica por sí misma el fenómeno que estudiamos: necesitamos comprender qué contiene, cómo se obtuvo y qué preguntas podemos responder con ella.
+
+R es un lenguaje y entorno de análisis que permite organizar información, realizar cálculos, generar gráficos y aplicar procedimientos estadísticos. Una ventaja importante es que podemos guardar las instrucciones utilizadas y ejecutarlas nuevamente. La reproducibilidad comienza con decisiones sencillas: conservar el código, identificar las variables y registrar adecuadamente los datos.
+
+En esta práctica utilizaremos R como una herramienta para comprender los datos, no como un fin en sí mismo. Comenzaremos con operaciones simples y construiremos progresivamente un conjunto de datos de 15 becerros (Webb, 2021).
+
+**Al terminar este capítulo podrás:** crear objetos y vectores; distinguir matrices y bases de datos; reconocer variables categóricas y numéricas; seleccionar registros; y comprobar que los datos fueron importados o creados correctamente.
+
+## Conociendo R, RStudio y los paquetes
+
+**R** ejecuta los cálculos y procedimientos. **RStudio** es un entorno que facilita escribir scripts, examinar objetos y visualizar resultados. Un *script* es un archivo de texto con instrucciones de R; guardarlo permite repetir un análisis sin reconstruir todas las operaciones manualmente.
+
+Los paquetes reúnen funciones adicionales. Se instalan una sola vez por equipo y se cargan en cada sesión donde se necesiten. Empezaremos con `psych` y más adelante utilizaremos `ggplot2`, `ggpubr` y `yarrr`.
+
+```{r}
+#| label: paquetes
+#| eval: false
+
+#### PAQUETES A DESCARGAR ----------------
+
+# Ejecutar esta instrucción una vez:
+install.packages("psych")
+
+#### CARGAMOS EL PAQUETE ----------------
+library(psych)
+```
+
+En RStudio, el editor de scripts contiene las instrucciones; la consola muestra su ejecución; el panel *Environment* permite observar los objetos; y el panel de gráficos muestra las figuras producidas.
+
+## Nuestros primeros objetos
+
+Un **objeto** almacena un valor o una estructura de información para utilizarla posteriormente. El símbolo `<-` asigna un valor al nombre elegido. Cuando escribimos el nombre del objeto, R muestra su contenido; con `str()` observamos su estructura.
+
+```{r}
+#| label: primeros-objetos
+
+#### GENERANDO OBJETOS ----------------
+X <- 10
+X
+str(X)
+
+#### OPERACIONES MATEMÁTICAS ----------------
+Y <- 6 + 5
+Y
+str(Y)
+```
+
+Podemos utilizar exactamente el mismo procedimiento para describir un problema sencillo de producción animal.
+
+```{r}
+#| label: peso-becerro
+
+#### PESO DE UN BECERRO ----------------
+PESO <- 250
+GANANCIA <- 30
+PESO.FINAL <- PESO + GANANCIA
+PESO.FINAL
+```
+
+En este ejemplo el peso final sería de **280 kg**. La importancia del ejercicio es reconocer que R conserva los valores y permite combinarlos en nuevas operaciones.
+
+::: {.callout-tip title="Experimentemos"}
+Cambia el peso inicial a 275 kg y la ganancia a 42 kg. ¿Qué resultado obtienes? ¿Qué sucede si ejecutas solamente la última línea sin haber creado antes los objetos?
+:::
+
+## Secuencias y vectores
+
+Una **secuencia** es una sucesión de valores ordenados. Con el operador `:` podemos generar números enteros consecutivos. Esto será útil para crear identificadores de animales y numerar observaciones.
+
+```{r}
+#| label: secuencias
+
+#### SECUENCIAS ----------------
+SECUENCIA <- 10:300
+SECUENCIA
+str(SECUENCIA)
+
+becerro <- 1:15
+becerro
+length(becerro)
+```
+
+Un **vector** es una estructura de R que contiene varios elementos del mismo tipo. La función `c()` permite combinar valores y los corchetes permiten seleccionar sus posiciones. En R la primera posición se identifica con el número 1.
+
+```{r}
+#| label: vectores
+
+#### VECTORES ----------------
+VECTOR <- c("A", "B", "C", "D")
+VECTOR
+str(VECTOR)
+
+#### EXTRAER ELEMENTOS ----------------
+VECTOR[1]
+VECTOR[2]
+VECTOR[1:3]
+```
+
+::: {.callout-tip title="Ejercicio"}
+Crea un vector con pesos de cinco ovejas: 45, 48, 52, 47 y 50 kg. Recupera la tercera observación y calcula el promedio con `mean()`.
+:::
+
+## Matrices
+
+Una **matriz** organiza elementos del mismo tipo en filas y columnas. Para seleccionar uno de sus elementos indicamos primero la fila y después la columna, separadas por una coma.
+
+```{r}
+#| label: matrices
+
+#### MATRICES ----------------
+MATRIZ <- matrix(5, nrow = 5, ncol = 5)
+MATRIZ
+
+MATRIZ2 <- matrix(
+  c(
+    0, 1, 1,
+    1, 0, 1,
+    1, 1, 0
+  ),
+  nrow = 3,
+  ncol = 3
+)
+
+MATRIZ2
+
+#### PRIMERO FILA Y DESPUÉS COLUMNA ----------------
+UNO <- MATRIZ2[3, 2]
+UNO
+```
+
+Las matrices resultan útiles para diversos cálculos, pero en experimentación animal normalmente necesitamos reunir columnas con diferentes tipos de información. Para ello trabajaremos con `data.frame`.
+
+## Funciones y ayuda
+
+Una **función** realiza una tarea definida y, habitualmente, recibe uno o varios argumentos entre paréntesis. Algunas funciones describen la estructura de nuestros objetos; otras calculan estadísticos o construyen gráficos.
+
+```{r}
+#| label: funciones-ayuda
+
+#### FUNCIONES ----------------
+str(Y)
+mode(Y)
+ls()
+
+#### ¿NECESITAS AYUDA? ----------------
+?mean
+?str
+?hist
+```
+
+En R, `mode()` informa sobre el modo de almacenamiento del objeto: **no debe confundirse con la moda estadística**, que veremos en el capítulo siguiente. La función `ls()` muestra los objetos disponibles en el entorno.
+
+## Variables y bases de datos
+
+Una **variable** es una característica que registramos y que puede asumir valores diferentes entre individuos u observaciones. Las variables **cuantitativas** representan cantidades medibles o contables, como peso o producción de leche; las **categóricas** identifican grupos o cualidades, como tratamiento, raza o sexo (Webb, 2021).
+
+En una base de datos, por lo general cada fila corresponde a una observación y cada columna a una variable. Un identificador de animal puede expresarse mediante números sin que ello lo convierta en una medida biológica continua.
+
+### Construyamos nuestra base de 15 becerros
+
+```{r}
+#| label: construir-base
+
+#### GENERAMOS UNA BASE DE DATOS ----------------
+becerro <- 1:15
+
+TX <- c(
+  1, 1, 1, 1, 1,
+  2, 2, 2, 2, 2,
+  3, 3, 3, 3, 3
+)
+
+GAN <- c(
+  270, 300, 280, 280, 270,
+  290, 250, 280, 290, 280,
+  290, 340, 330, 300, 340
+)
+
+#### UNIMOS COLUMNAS ----------------
+DATA <- cbind(becerro, TX, GAN)
+DATA
+DATA[8, ]
+
+#### CONVERTIMOS A DATA FRAME ----------------
+DATA <- as.data.frame(DATA)
+DATA$TX <- as.factor(DATA$TX)
+str(DATA)
+```
+
+La columna `becerro` identifica cada animal; `TX` indica el grupo de tratamiento; y `GAN` contiene la ganancia diaria de peso en **g/día**. La función `as.factor()` permite indicar que `TX` representa categorías, no una cantidad continua.
+
+Una vez comprendido el procedimiento anterior, podemos crear la misma estructura directamente:
+
+```{r}
+#| label: crear-base-directamente
+
+#### OTRA FORMA DE CREAR LA BASE ----------------
+DATA <- data.frame(
+  becerro = 1:15,
+  TX = factor(c(
+    1, 1, 1, 1, 1,
+    2, 2, 2, 2, 2,
+    3, 3, 3, 3, 3
+  )),
+  GAN = c(
+    270, 300, 280, 280, 270,
+    290, 250, 280, 290, 280,
+    290, 340, 330, 300, 340
+  )
+)
+
+str(DATA)
+```
+
+## Revisando los datos antes del análisis
+
+Antes de aplicar cualquier procedimiento, debemos comprobar que los registros contienen los valores esperados y que las variables tienen el tipo correcto. Un error en la organización de datos puede cambiar el significado del análisis.
+
+```{r}
+#| label: inspeccion-base
+
+#### INSPECCIÓN DE LA BASE ----------------
+head(DATA)
+summary(DATA)
+str(DATA)
+nrow(DATA)
+ncol(DATA)
+
+#### EXTRAER OBSERVACIONES ----------------
+DATA[8, ]
+DATA[DATA$TX == 1, ]
+DATA[DATA$becerro == 10, ]
+
+#### DATOS FALTANTES ----------------
+colSums(is.na(DATA))
+```
+
+En los ejercicios siguientes retomaremos estos mismos registros para estudiar la media, la desviación estándar y la representación gráfica de la variabilidad.
+
+## Actividad del capítulo
+
+1. Identifica cuántos becerros y tratamientos contiene la base.
+2. Explica qué representa cada columna y cuál es la variable de respuesta.
+3. Describe por qué `TX` debe almacenarse como factor.
+4. Recupera solamente las observaciones del tratamiento 2.
+5. Comprueba si existen datos faltantes.
+6. Exporta tus instrucciones a un archivo `.R` y consérvalo para el capítulo siguiente.
+
+## Lo que aprendimos
+
+Hemos construido objetos, vectores, matrices y una base de datos. También reconocimos variables cuantitativas y categóricas, y comprobamos la estructura de los registros. En el próximo capítulo describiremos sus valores y estudiaremos por qué los animales no responden exactamente de la misma manera.
+
+---
+
+Dr. Juan Carlos Ángeles Hernández  
+Departamento de Medicina y Zootecnia de Rumiantes  
+FMVZ–UNAM · Sección I

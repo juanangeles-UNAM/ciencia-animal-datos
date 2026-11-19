@@ -1,0 +1,61 @@
+---
+title: "Recursos del curso"
+subtitle: "Scripts, datos y bibliografía"
+author: "Dr. Juan Carlos Ángeles Hernández"
+page-layout: article
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+lang: es
+---
+
+::: {.callout-note}
+En esta primera versión se incluyen archivos para reproducir las prácticas en RStudio y los datos de los ejemplos.
+:::
+
+## Scripts de R
+
+- [Capítulo 1 — Introducción a R](scripts/CAPITULO_01.R){download="CAPITULO_01.R"}
+- [Capítulo 2 — Estadística descriptiva](scripts/CAPITULO_02.R){download="CAPITULO_02.R"}
+- [CLASE1.R original](scripts/CLASE1_original.R){download="CLASE1_original.R"}
+
+## Bases de datos
+
+- [BECERROS.csv](datos/BECERROS.csv){download="BECERROS.csv"}: 15 registros originales, con identificación, tratamiento y ganancia diaria de peso.
+- [CORREDORES_limpio.csv](datos/CORREDORES_limpio.csv){download="CORREDORES_limpio.csv"}: base organizada sin índice de exportación.
+- [CORREDORES_original.csv](datos/CORREDORES_original.csv){download="CORREDORES_original.csv"}: copia del archivo proporcionado.
+
+## Cómo ejecutar los scripts
+
+Instala R y RStudio en tu equipo. Abre el script, ejecuta las instrucciones por bloques y observa los resultados en la consola y el panel de gráficos. Los paquetes adicionales se instalan una sola vez con `install.packages("nombre")` y se cargan en cada sesión mediante `library(nombre)`.
+
+Los gráficos del sitio se generaron a partir de los valores originales para facilitar su consulta. Para reproducirlos directamente en RStudio, utiliza los fragmentos de código incluidos en cada capítulo.
+
+::: {.callout-tip title="Estructura recomendada del proyecto"}
+Mantén las carpetas `scripts/`, `datos/` y `assets/` en la misma carpeta principal que los archivos `.qmd`. De esta forma, Quarto podrá localizar correctamente todos los recursos al renderizar el sitio.
+:::
+
+## Bibliografía
+
+Webb, R. L. (2021). *Mostly Harmless Statistics* (2.ª ed.). Portland State University. Especialmente capítulos 1–3.
+
+Festing, M. F. W., & Altman, D. G. (2002). Guidelines for the design and statistical analysis of experiments using laboratory animals. *ILAR Journal, 43*(4), 244–258. <https://doi.org/10.1093/ilar.43.4.244>
+
+Material complementario proporcionado: *Statistical Concepts*; *Experimental Design*; *Statistical Analysis* y *Randomisation*.
+
+::: {.grid}
+::: {.g-col-6}
+[← Capítulo 2](capitulo-02.qmd){.btn .btn-outline-primary}
+:::
+::: {.g-col-6 style="text-align: right;"}
+[Volver al inicio](index.qmd){.btn .btn-primary}
+:::
+:::
+
+---
+
+Dr. Juan Carlos Ángeles Hernández  
+Departamento de Medicina y Zootecnia de Rumiantes  
+FMVZ–UNAM · Sección I
